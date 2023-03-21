@@ -53,3 +53,16 @@ WHERE id_topic = 2
 ORDER BY YEAR(commentDate) DESC, MONTH(commentDate) DESC 
 
 
+
+
+----------------------------------------------------------------- profile page ---------------------------------------------------------------
+
+-- user info
+SELECT id_user, avatar, pseudo
+FROM user u
+
+-- post of the user
+SELECT id_user, id_topic, avatar, pseudo, DATE_FORMAT(topicCreatedAt, '%d/%m/%Y') AS DATE, title
+FROM user u
+INNER JOIN topic t
+ON t.user_id = u.id_user
