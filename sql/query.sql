@@ -1,12 +1,15 @@
--- Home page 
-
+------------------------------------------------------ Home page --------------------------------------------------- 
 SELECT id_topic, id_user, title, DATE_FORMAT(topicCreatedAt,'%d/%m/%Y') AS DATE, avatar, pseudo
 FROM topic t
 INNER JOIN user u
 ON t.user_id = u.id_user
 ORDER BY YEAR(DATE) DESC, MONTH(DATE) DESC 
 
--- category page
+
+
+
+---------------------------------------------- category page ---------------------------------------------------------
+
 -- show categories on the page
 SELECT nameCategory
 FROM category
@@ -19,7 +22,9 @@ ON t.category_id = c.id_category
 WHERE id_category = 3
 
 
--- topic page
+
+
+---------------------------------------------------- topic page -----------------------------------------------------
 SELECT id_topic, id_user, title, DATE_FORMAT(topicCreatedAt,'%d/%m/%Y') AS DATE, avatar, pseudo
 FROM topic t
 INNER JOIN user u
@@ -27,8 +32,9 @@ ON t.user_id = u.id_user
 ORDER BY YEAR(DATE) DESC, MONTH(DATE) DESC 
 
 
--- article page
 
+
+--------------------------------------------------- article page ----------------------------------------------------
 -- article section
 SELECT id_topic, id_user, title, DATE_FORMAT(topicCreatedAt,'%d/%m/%Y') AS DATE, avatar, pseudo, lockTopic
 FROM topic t
