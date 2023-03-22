@@ -6,18 +6,18 @@
     use App\AbstractController;
     use App\ControllerInterface;
     use Model\Managers\TopicManager;
-    use Model\Managers\PostManager;
+    use Model\Managers\CategoryManager;
 
     class ForumController extends AbstractController implements ControllerInterface{
 
         public function index(){
             
-            $topicManager = new TopicManager();
+            $categoryManager = new CategoryManager();
 
             return [
-                "view" => VIEW_DIR."forum/listTopics.php",
+                "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
-                    "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"]),
+                    "categories" => $categoryManager->findAll(["nameCategory", ""]),
                 ]
             ];
         }

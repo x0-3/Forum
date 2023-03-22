@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/adba52364d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public\css\style.css">
     <title>Document</title>
 </head>
@@ -18,8 +21,8 @@
 
         <nav>
             <ul>
-                <li><a href="index.php" class="fa-solid fa-house"></a></li>
-                <li><a href="" class="fa-solid fa-puzzle-piece"></a></li>
+                <li><a href="index.php?ctrl=home&action=home" class="fa-solid fa-house"></a></li>
+                <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
                 <li><a href="#" class="fa-solid fa-arrow-right-from-bracket"></a></li>
             </ul>
         </nav>

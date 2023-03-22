@@ -1,6 +1,9 @@
 <?php
 
 $topics = $result["data"]['topics'];
+$users = $result["data"]['users'];
+
+// var_dump($users);
 
 ?>
 
@@ -11,20 +14,23 @@ $topics = $result["data"]['topics'];
 
 <section class="posts">
 
-    <article>
+    <?php
+    foreach($topics as $topic){
+        ?>
+        <article>
 
-    </article>
+            <p><?=$topic->getTopicCreatedAt()?></p>
 
-</section>
-<?php
-foreach($topics as $topic){
+            <a href="#">
+                <p><?=$topic->getTitle()?></p>
+            </a>
+
+
+        </article>
+    <?php
+    }
     ?>
 
-    <p><?=$topic->getTopicCreatedAt()?></p>
-    <p><?=$topic->getTitle()?></p>
+</section>
 
-<?php
-}
-
-?>
 

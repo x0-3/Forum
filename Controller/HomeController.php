@@ -19,7 +19,9 @@
             return[
                 "view" => VIEW_DIR. "home.php",
                 "data" => [
+                    "users" =>$userManager->findAll(["id_user", " "]),
                     "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"]),
+                    
                 ]
             ];
         }
