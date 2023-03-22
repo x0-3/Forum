@@ -11,7 +11,7 @@ ORDER BY YEAR(DATE) DESC, MONTH(DATE) DESC
 ---------------------------------------------- category page ---------------------------------------------------------
 
 -- show categories on the page
-SELECT nameCategory
+SELECT id_category, nameCategory
 FROM category
 
 -- redirect for topic page 
@@ -66,3 +66,11 @@ SELECT id_user, id_topic, avatar, pseudo, DATE_FORMAT(topicCreatedAt, '%d/%m/%Y'
 FROM user u
 INNER JOIN topic t
 ON t.user_id = u.id_user
+
+
+
+
+------------------------------------------------------------------- search bar ---------------------------------------------------------------
+SELECT *
+FROM topic t
+WHERE title LIKE '%ha%'
