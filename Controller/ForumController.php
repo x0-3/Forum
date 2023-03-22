@@ -12,9 +12,13 @@
 
         public function index(){
             
+            $topicManager = new TopicManager();
+
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
-
+                "data" => [
+                    "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"])
+                ]
             ];
         }
     }

@@ -12,7 +12,7 @@
      */
     abstract class DAO{
 
-        private static $host   = 'localhost';
+        private static $host   = 'mysql:host=localhost';
         private static $dbname = 'forum';
         private static $dbuser = 'root';
         private static $dbpass = '';
