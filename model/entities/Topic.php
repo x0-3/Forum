@@ -12,6 +12,7 @@
         private $lockTopic;
         private Category $category;
         private User $user;
+        
 
         public function __construct($data){
             $this->hydrate($data);
