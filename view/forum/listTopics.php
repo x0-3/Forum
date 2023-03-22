@@ -1,6 +1,6 @@
 <?php
 
-$topic = $result["data"]['topics'];
+$topics = $result["data"]['topics'];
 
 ?>
 
