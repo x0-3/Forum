@@ -13,9 +13,14 @@
     class HomeController extends AbstractController implements ControllerInterface{
 
         public function index(){
-            
+            $topicManager = new TopicManager();
+            $userManager = new UserManager();
+
             return[
-                "view" => VIEW_DIR. "home.php"
+                "view" => VIEW_DIR. "home.php",
+                "data" => [
+                    "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"]),
+                ]
             ];
         }
     }
