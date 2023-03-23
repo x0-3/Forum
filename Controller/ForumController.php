@@ -20,7 +20,6 @@
                 "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
                     "categories" => $categoryManager->findAll(),
-                    "topics" => $topicManager->findAll(),
                 ]
             ];
 
@@ -28,11 +27,15 @@
 
         public function detailCategory($id){
 
+            $categoryManager = new CategoryManager();
+
             $topicManager = new TopicManager();
 
             return [
                 "view" => VIEW_DIR."forum/detailCategory.php",
                 "data" => [
+                    "categories" => $categoryManager->findOneById($id),
+                    // "topics" =>$topicManager->findAll(),
                     "topics" =>$topicManager->findOneById($id),
                 ]
             ];
