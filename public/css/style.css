@@ -44,7 +44,7 @@
 * body main, * body footer {
   padding-left: 118px;
 }
-* body main .posts, * body main .listCategories {
+* body main .listCategories {
   height: 66vh;
 }
 * body main form {
@@ -99,6 +99,28 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+* body main .posts .message {
+  width: 84%;
+}
+* body main .posts .message .messTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+* body main .posts .message .messTitle a {
+  color: black;
+  text-decoration: none;
+}
+* body main .posts .message .authorInfo {
+  display: flex;
+  margin-bottom: 21px;
+}
+* body main .posts .message .authorInfo a {
+  color: black;
+  text-decoration: none;
+  margin: 0 28px 0 4px;
 }
 * body main h1 {
   text-align: center;

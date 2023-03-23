@@ -30,7 +30,7 @@ $topic = $result["data"]["topics"];
 
         <p><?=$topic->getTopicCreatedAt()?></p>
 
-        <a href="#">
+        <a href="index.php?ctrl=forum&action=detailTopic&id=<?=$topic->getId()?>">
         <p><?=$topic->getTitle()?></p>
         </a>
 
