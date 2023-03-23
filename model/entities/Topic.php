@@ -6,7 +6,7 @@
 
     final class Topic extends Entity{
 
-        private $id_topic;
+        private $id;
         private $title;
         private $topicCreatedAt;
         private $lockTopic;
@@ -18,27 +18,6 @@
             $this->hydrate($data);
         }
 
-
-    
-        /**
-         * Get the value of id_topic
-         */ 
-        public function getId_topic()
-        {
-                return $this->id_topic;
-        }
-
-        /**
-         * Set the value of id_topic
-         *
-         * @return  self
-         */ 
-        public function setId_topic($id_topic)
-        {
-                $this->id_topic = $id_topic;
-
-                return $this;
-        }
 
         /**
          * Get the value of title
@@ -138,6 +117,27 @@
         public function setUser($user)
         {
                 $this->user = $user;
+
+                return $this;
+        }
+
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
 
                 return $this;
         }

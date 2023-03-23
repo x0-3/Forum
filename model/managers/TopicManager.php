@@ -15,5 +15,20 @@
             parent::connect();
         }
 
+        // public function latestTopic(){
+        //     $orderQuery = ($order) ?                 
+        //     "ORDER BY ".$order[0]. " ".$order[1] :
+        //     "";
+
+        //     $sql = "SELECT *
+        //             FROM topic t
+        //             LIMIT 5";
+
+        //     return $this->getMultipleResults(
+        //         DAO::select($sql), 
+        //         $this->className
+        //     );
+        // }
+
 
     }

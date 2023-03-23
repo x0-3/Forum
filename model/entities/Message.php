@@ -5,7 +5,7 @@ namespace Model\Entities;
 use App\Entity;
 
 final class Message extends Entity{
-    private $id_message;
+    private $id;
     private $text;
     private $messCreatedAt;
     private User $user;
@@ -15,27 +15,6 @@ final class Message extends Entity{
         $this->hydrate($data);
     }
 
-    
-
-    /**
-     * Get the value of id_message
-     */ 
-    public function getId_message()
-    {
-        return $this->id_message;
-    }
-
-    /**
-     * Set the value of id_message
-     *
-     * @return  self
-     */ 
-    public function setId_message($id_message)
-    {
-        $this->id_message = $id_message;
-
-        return $this;
-    }
 
     /**
      * Get the value of text
@@ -113,6 +92,26 @@ final class Message extends Entity{
     public function setTopic($topic)
     {
         $this->topic = $topic;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

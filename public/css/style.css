@@ -44,6 +44,9 @@
 * body main, * body footer {
   padding-left: 118px;
 }
+* body main .posts, * body main .listCategories {
+  height: 66vh;
+}
 * body main form {
   display: flex;
   justify-content: center;
@@ -54,7 +57,7 @@
 }
 * body main form .fa-solid {
   position: absolute;
-  right: 82px;
+  right: 109px;
   color: #757575;
 }
 * body main form input[type=search i] {
@@ -74,6 +77,23 @@
   padding: 15px;
   width: 84%;
   margin-top: 25px;
+}
+* body main .posts article .authorInfo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 21px;
+}
+* body main .posts article .authorInfo figure {
+  width: 5%;
+  margin-right: 11px;
+}
+* body main .posts article .authorInfo figure img {
+  width: 100%;
+  border-radius: 100%;
+}
+* body main .posts article .authorInfo a {
+  font-weight: 100;
 }
 * body main .posts article a {
   text-decoration: none;
@@ -107,9 +127,8 @@
 }
 * body footer {
   background-color: #1E1637;
-  bottom: 0;
-  position: absolute;
   width: 100%;
+  margin-top: 46px;
 }
 * body footer ul {
   display: flex;

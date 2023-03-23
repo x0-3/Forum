@@ -1,9 +1,6 @@
 <?php
 
 $topics = $result["data"]['topics'];
-$users = $result["data"]['users'];
-
-// var_dump($users);
 
 ?>
 
@@ -18,16 +15,28 @@ $users = $result["data"]['users'];
     foreach($topics as $topic){
         ?>
         <article>
+            <div class="authorInfo">
+                <figure>
+                    <img src="<?=$topic->getUser()->getAvatar()?>" alt="avatar">
+                    
+                </figure>
+
+                <a href="#">
+                    <p><?=$topic->getUser()->getPseudo()?></p>
+                    
+                </a>
+            </div>
 
             <p><?=$topic->getTopicCreatedAt()?></p>
 
             <a href="#">
-                <p><?=$topic->getTitle()?></p>
+            <p><?=$topic->getTitle()?></p>
             </a>
 
 
         </article>
     <?php
+    // var_dump();
     }
     ?>
 

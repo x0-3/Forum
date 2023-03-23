@@ -6,7 +6,7 @@ use App\Entity;
 
 final class User extends Entity {
 
-    private $id_user;
+    private $id;
     private $pseudo;
     private $avatar;
     private $email;
@@ -18,30 +18,6 @@ final class User extends Entity {
     public function __construct($data){
         $this->hydrate($data);
     }
-
-    
-
-    /**
-     * Get the value of id_user
-     */ 
-    public function getId_user()
-    {
-        return $this->id_user;
-    }
-
-    /**
-     * Set the value of id_user
-     *
-     * @return  self
-     */ 
-    public function setId_user($id_user)
-    {
-        $this->id_user = $id_user;
-
-        return $this;
-    }
-
-
 
 
     /**
@@ -175,6 +151,26 @@ final class User extends Entity {
     public function setRole($role)
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

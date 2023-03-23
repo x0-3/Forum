@@ -14,14 +14,11 @@
 
         public function index(){
             $topicManager = new TopicManager();
-            $userManager = new UserManager();
 
             return[
                 "view" => VIEW_DIR. "home.php",
                 "data" => [
-                    "users" =>$userManager->findAll(["id_user", " "]),
-                    "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"]),
-                    
+                    "topics" => $topicManager->findAll(["topicCreatedAt", "DESC"]),                    
                 ]
             ];
         }
