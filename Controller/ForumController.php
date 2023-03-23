@@ -14,7 +14,7 @@
         public function index(){
             
             $categoryManager = new CategoryManager();
-            $topicManager = new TopicManager();
+            // $topicManager = new TopicManager();
 
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
@@ -25,18 +25,17 @@
 
         }
 
+        // FIXME:topic doesn't match it's category 
         public function detailCategory($id){
 
             $categoryManager = new CategoryManager();
-
             $topicManager = new TopicManager();
 
             return [
                 "view" => VIEW_DIR."forum/detailCategory.php",
                 "data" => [
                     "categories" => $categoryManager->findOneById($id),
-                    // "topics" =>$topicManager->findAll(),
-                    "topics" =>$topicManager->findOneById($id),
+                    "topics" =>$topicManager->TopicCategory($id),
                 ]
             ];
         }

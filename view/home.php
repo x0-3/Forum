@@ -36,7 +36,6 @@ $topics = $result["data"]['topics'];
 
         </article>
     <?php
-    // var_dump();
     }
     ?>
 

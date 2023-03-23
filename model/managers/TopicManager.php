@@ -15,20 +15,19 @@
             parent::connect();
         }
 
-        // public function latestTopic(){
-        //     $orderQuery = ($order) ?                 
-        //     "ORDER BY ".$order[0]. " ".$order[1] :
-        //     "";
 
-        //     $sql = "SELECT *
-        //             FROM topic t
-        //             LIMIT 5";
+        // finds the topics of one category 
+        public function TopicCategory($id){
 
-        //     return $this->getMultipleResults(
-        //         DAO::select($sql), 
-        //         $this->className
-        //     );
-        // }
+            $sql = "SELECT *
+                    FROM ".$this->tableName." a
+                    WHERE a.category_id = :id
+                    ";
 
+            return $this->getOneOrNullResult(
+                DAO::select($sql, ['id' => $id], false), 
+                $this->className
+            );
+        }
 
     }

@@ -1,7 +1,6 @@
 <?php
-$category = $result["data"]["categories"];
+$categories = $result["data"]["categories"];
 $topic = $result["data"]["topics"];
-
 ?>
 
 <form action="">
@@ -13,13 +12,29 @@ $topic = $result["data"]["topics"];
 
 <section class="posts">
 
-    <h1><?=$category->getNameCategory()?></h1>
+    <h1><?=$categories->getNameCategory()?></h1>
+
     
     <article>
+        <div class="authorInfo">
+            <figure>
+                <img src="<?=$topic->getUser()->getAvatar()?>" alt="avatar">
+                
+            </figure>
 
-        <h1><?=$topic->getCategory()->getNameCategory()?></h1>
-        <h1><?=$topic->getTitle()?></h1>
- 
-    </article>
+            <a href="#">
+                <p><?=$topic->getUser()->getPseudo()?></p>
+                
+            </a>
+        </div>
+
+        <p><?=$topic->getTopicCreatedAt()?></p>
+
+        <a href="#">
+        <p><?=$topic->getTitle()?></p>
+        </a>
+
+
+        </article>
 
 </section>
