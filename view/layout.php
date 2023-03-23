@@ -15,13 +15,15 @@
 <body>
 
     <header>
-        <figure>
-            <img src="public\img\logo.png" alt="logo">
-        </figure>
+        <a href="index.php">
+            <figure>
+                <img src="public\img\logo.png" alt="logo">
+            </figure>
+        </a>
 
         <nav>
             <ul>
-                <li><a href="index.php?ctrl=home&action=home" class="fa-solid fa-house"></a></li>
+                <li><a href="index.php" class="fa-solid fa-house"></a></li>
                 <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
                 <li><a href="#" class="fa-solid fa-arrow-right-from-bracket"></a></li>
             </ul>

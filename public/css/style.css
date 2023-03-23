@@ -13,11 +13,11 @@
   flex-direction: column;
   align-items: center;
 }
-* body header figure {
+* body header a {
   width: 70%;
   margin: 8px;
 }
-* body header figure img {
+* body header a figure img {
   width: 100%;
 }
 * body header nav {

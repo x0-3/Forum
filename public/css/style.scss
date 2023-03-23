@@ -14,13 +14,15 @@
             flex-direction: column;
             align-items: center;
 
-            figure{
+            a{
                 width: 70%;
                 margin: 8px;
-
-                img{
-                    width: 100%;
+                figure{
+                    img{
+                        width: 100%;
+                    }
                 }
+
             }
 
             nav{
