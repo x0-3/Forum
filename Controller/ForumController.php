@@ -68,15 +68,15 @@
         }
 
         // FIXME:add an insert into look into the syntaxe
-        public function addMessage(){
+        // public function addMessage(){
 
-            $messageManager = new MessageManager();
+        //     $messageManager = new MessageManager();
 
-            return [
-                "view" => VIEW_DIR."forum/addMessage.php",
-                "data" => [
-                    "messages" => $messageManager->add(["TEXT,user_id, messCreatedAt"]),
-                ]
-            ];
-        }
+        //     return [
+        //         "view" => VIEW_DIR."forum/addMessage.php",
+        //         "data" => [
+        //             "messages" => $messageManager->add(["TEXT,user_id, messCreatedAt"]),
+        //         ]
+        //     ];
+        // }
     }

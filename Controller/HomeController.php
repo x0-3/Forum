@@ -14,7 +14,7 @@
 
         public function index(){
             $topicManager = new TopicManager();
-
+    
             return[
                 "view" => VIEW_DIR. "home.php",
                 "data" => [
