@@ -1,3 +1,5 @@
+<!-- // FIXME:change getOneOrNullResult -->
+
 <?php
 $user = $result['data']['user'];
 $topic = $result['data']['topics'];

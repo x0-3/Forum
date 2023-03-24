@@ -13,6 +13,8 @@ class MessageManager extends Manager{
         parent :: connect();
     }
 
+    // FIXME:change getOneOrNullResult
+    
     // finds the messages of one Topic 
     public function TopicMessage($id){
 

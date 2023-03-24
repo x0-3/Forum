@@ -15,6 +15,7 @@
             parent::connect();
         }
 
+        // FIXME:change getOneOrNullResult
 
         // finds the topics of one category 
         public function TopicCategory($id){
@@ -28,7 +29,14 @@
                 DAO::select($sql, ['id' => $id], false), 
                 $this->className
             );
+
+            // return $this->getMultipleResults(
+            //     DAO::select($sql, ['id' => $id]), 
+            //     $this->className
+            // );
         }
+
+        // FIXME:change getOneOrNullResult
 
         // finds the topics of one category 
         public function TopicUser($id){

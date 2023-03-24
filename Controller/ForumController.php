@@ -66,4 +66,17 @@
                 ]
             ];
         }
+
+        // FIXME:add an insert into look into the syntaxe
+        public function addMessage(){
+
+            $messageManager = new MessageManager();
+
+            return [
+                "view" => VIEW_DIR."forum/addMessage.php",
+                "data" => [
+                    "messages" => $messageManager->add(["TEXT,user_id, messCreatedAt"]),
+                ]
+                ];
+        }
     }

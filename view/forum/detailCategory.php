@@ -1,3 +1,4 @@
+<!-- // FIXME:change getOneOrNullResult -->
 <?php
 $categories = $result["data"]["categories"];
 $topic = $result["data"]["topics"];
@@ -16,7 +17,7 @@ $topic = $result["data"]["topics"];
     </div>
     
     <div class="posts">
-    
+        
         <article>
             <div class="authorInfo">
                 <figure>

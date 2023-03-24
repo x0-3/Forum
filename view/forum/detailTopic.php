@@ -1,3 +1,4 @@
+<!-- // FIXME:change getOneOrNullResult -->
 <?php
 $topic = $result["data"]["topic"];
 $message = $result["data"]["messages"];
@@ -29,7 +30,7 @@ $message = $result["data"]["messages"];
         
         <div class="messTitle">
             <h1>Messages</h1>
-            <a href="#" class="fa-solid fa-plus"></a>
+            <a href="index.php?ctrl=forum&action=addMessage&id=<?=$message->getTopic()->getId()?>" class="fa-solid fa-plus"></a>
         </div>
     
         <div class="authorInfo">
