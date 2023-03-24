@@ -13,7 +13,6 @@ class MessageManager extends Manager{
         parent :: connect();
     }
 
-    // FIXME:change getOneOrNullResult
     
     // finds the messages of one Topic 
     public function TopicMessage($id){
@@ -23,8 +22,8 @@ class MessageManager extends Manager{
                 WHERE a.topic_id = :id
                 ";
 
-        return $this->getOneOrNullResult(
-            DAO::select($sql, ['id' => $id], false), 
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id], true), 
             $this->className
         );
     }

@@ -15,30 +15,23 @@
             parent::connect();
         }
 
-        // FIXME:change getOneOrNullResult
-
         // finds the topics of one category 
         public function TopicCategory($id){
 
             $sql = "SELECT *
-                    FROM ".$this->tableName." a
+                    FROM " . $this->tableName . " a
                     WHERE a.category_id = :id
                     ";
-
-            return $this->getOneOrNullResult(
-                DAO::select($sql, ['id' => $id], false), 
+                
+            return $this->getMultipleResults(
+                DAO::select($sql, ['id' => $id], true), 
                 $this->className
             );
 
-            // return $this->getMultipleResults(
-            //     DAO::select($sql, ['id' => $id]), 
-            //     $this->className
-            // );
         }
 
-        // FIXME:change getOneOrNullResult
 
-        // finds the topics of one category 
+        // finds the topics Posted by one user 
         public function TopicUser($id){
 
             $sql = "SELECT *
@@ -46,8 +39,8 @@
                     WHERE a.user_id = :id
                     ";
 
-            return $this->getOneOrNullResult(
-                DAO::select($sql, ['id' => $id], false), 
+            return $this->getMultipleResults(
+                DAO::select($sql, ['id' => $id], true), 
                 $this->className
             );
         }

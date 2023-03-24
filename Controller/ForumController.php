@@ -77,6 +77,6 @@
                 "data" => [
                     "messages" => $messageManager->add(["TEXT,user_id, messCreatedAt"]),
                 ]
-                ];
+            ];
         }
     }

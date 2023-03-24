@@ -1,7 +1,6 @@
-<!-- // FIXME:change getOneOrNullResult -->
 <?php
 $topic = $result["data"]["topic"];
-$message = $result["data"]["messages"];
+$messages = $result["data"]["messages"];
 ?>
 
 
@@ -26,25 +25,30 @@ $message = $result["data"]["messages"];
         </a>
     </article>
 
-    <div class="message">
+    <?php
+    foreach ($messages as $message){
+        ?>
+        <div class="message">
+            
+            <div class="messTitle">
+                <h1>Messages</h1>
+                <a href="index.php?ctrl=forum&action=addMessage&id=<?=$message->getTopic()->getId()?>" class="fa-solid fa-plus"></a>
+            </div>
         
-        <div class="messTitle">
-            <h1>Messages</h1>
-            <a href="index.php?ctrl=forum&action=addMessage&id=<?=$message->getTopic()->getId()?>" class="fa-solid fa-plus"></a>
+            <div class="authorInfo">
+        
+                <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
+                    <p><?=$message->getUser()->getPseudo()?></p>
+                </a>
+        
+                <p><?=$message->getMessCreatedAt()?></p>
+        
+            </div>
+        
+            <p><?=$message->getText()?></p>
+        
         </div>
-    
-        <div class="authorInfo">
-    
-            <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
-                <p><?=$message->getUser()->getPseudo()?></p>
-            </a>
-    
-            <p><?=$message->getMessCreatedAt()?></p>
-    
-        </div>
-    
-        <p><?=$message->getText()?></p>
-    
-    </div>
-    
+    <?php
+    }
+    ?>
 </section>
