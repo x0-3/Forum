@@ -126,31 +126,31 @@
                     }
                 }
                 
-                .message{
-    
-                    width: 84%;
-    
-                    .messTitle{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-    
-                        a{
-                           
-                            color: white;
-                            text-decoration: none;
-                            margin-left: 11px;
-                            background-color: #6a9f91;
-                            padding: 10px;
-                            border-radius: 10px;
-                            -webkit-border-radius: 10px;
-                            -moz-border-radius: 10px;
-                            -ms-border-radius: 10px;
-                            -o-border-radius: 10px;
-                          
-                        }
+                .messTitle{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+
+                    a{
+                       
+                        color: white;
+                        text-decoration: none;
+                        margin-left: 11px;
+                        background-color: #6a9f91;
+                        padding: 10px;
+                        border-radius: 10px;
+                        -webkit-border-radius: 10px;
+                        -moz-border-radius: 10px;
+                        -ms-border-radius: 10px;
+                        -o-border-radius: 10px;
+                      
                     }
+                }
+                .message{
+                    width: 84%;
+                    margin-bottom: 40px;
+    
     
                     .authorInfo{
                         display: flex;
@@ -242,8 +242,8 @@
             background-color: #1E1637;
             width: 100%;
             margin-top: 46px;
-            position: absolute;
-            bottom: 0;
+            // position: absolute;
+            // bottom: 0;
 
             ul{
                 display: flex;

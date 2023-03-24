@@ -101,16 +101,13 @@
   color: black;
   font-weight: bold;
 }
-* body main .posts .message {
-  width: 84%;
-}
-* body main .posts .message .messTitle {
+* body main .posts .messTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-* body main .posts .message .messTitle a {
+* body main .posts .messTitle a {
   color: white;
   text-decoration: none;
   margin-left: 11px;
@@ -121,6 +118,10 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+* body main .posts .message {
+  width: 84%;
+  margin-bottom: 40px;
 }
 * body main .posts .message .authorInfo {
   display: flex;
@@ -194,8 +195,6 @@
   background-color: #1E1637;
   width: 100%;
   margin-top: 46px;
-  position: absolute;
-  bottom: 0;
 }
 * body footer ul {
   display: flex;

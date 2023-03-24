@@ -25,16 +25,18 @@ $messages = $result["data"]["messages"];
         </a>
     </article>
 
+    <div class="messTitle">
+        <h1>Messages</h1>
+        <a href="index.php?ctrl=forum&action=addMessage&id=<?=$topic->getId()?>" class="fa-solid fa-plus"></a>
+    </div>
+
     <?php
     foreach ($messages as $message){
         ?>
+        
         <div class="message">
             
-            <div class="messTitle">
-                <h1>Messages</h1>
-                <a href="index.php?ctrl=forum&action=addMessage&id=<?=$message->getTopic()->getId()?>" class="fa-solid fa-plus"></a>
-            </div>
-        
+
             <div class="authorInfo">
         
                 <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
