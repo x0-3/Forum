@@ -52,11 +52,9 @@
             }
         }
 
-        main, footer{
-            padding-left: 118px;
-        }
 
         main{
+            padding-left: 118px;
 
             .listCategories{
                 height: 66vh;
@@ -191,6 +189,8 @@
             background-color: #1E1637;
             width: 100%;
             margin-top: 46px;
+            position: absolute;
+            bottom: 0;
 
             ul{
                 display: flex;

@@ -41,7 +41,7 @@
 * body header nav ul li a:hover {
   color: #6a9f91;
 }
-* body main, * body footer {
+* body main {
   padding-left: 118px;
 }
 * body main .listCategories {
@@ -151,6 +151,8 @@
   background-color: #1E1637;
   width: 100%;
   margin-top: 46px;
+  position: absolute;
+  bottom: 0;
 }
 * body footer ul {
   display: flex;
