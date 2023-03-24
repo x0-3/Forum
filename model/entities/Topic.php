@@ -44,7 +44,7 @@
          */ 
         public function getTopicCreatedAt()
         {
-                return $this->topicCreatedAt;
+                return $this->topicCreatedAt ;
         }
 
         /**
@@ -54,6 +54,9 @@
          */ 
         public function setTopicCreatedAt($topicCreatedAt)
         {
+                $formatDate = strtotime( $topicCreatedAt );
+                $topicCreatedAt = date( 'd/m/Y', $formatDate );
+
                 $this->topicCreatedAt = $topicCreatedAt;
 
                 return $this;

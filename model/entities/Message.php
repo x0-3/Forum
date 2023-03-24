@@ -51,6 +51,9 @@ final class Message extends Entity{
      */ 
     public function setMessCreatedAt($messCreatedAt)
     {
+        $formatDate = strtotime( $messCreatedAt );
+        $messCreatedAt = date( 'd/m/Y', $formatDate );
+
         $this->messCreatedAt = $messCreatedAt;
 
         return $this;
