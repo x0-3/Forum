@@ -12,7 +12,7 @@ $message = $result["data"]["messages"];
                 
             </figure>
 
-            <a href="#">
+            <a href="index.php?ctrl=forum&action=detailUser&id=<?=$topic->getUser()->getId()?>">
                 <p><?=$topic->getUser()->getPseudo()?></p>
                 
             </a>
@@ -34,7 +34,7 @@ $message = $result["data"]["messages"];
     
         <div class="authorInfo">
     
-            <a href="#">
+            <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
                 <p><?=$message->getUser()->getPseudo()?></p>
             </a>
     

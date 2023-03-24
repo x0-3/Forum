@@ -30,4 +30,18 @@
             );
         }
 
+        // finds the topics of one category 
+        public function TopicUser($id){
+
+            $sql = "SELECT *
+                    FROM ".$this->tableName." a
+                    WHERE a.user_id = :id
+                    ";
+
+            return $this->getOneOrNullResult(
+                DAO::select($sql, ['id' => $id], false), 
+                $this->className
+            );
+        }
+
     }

@@ -1,19 +1,25 @@
 <?php
-$categories = $result["data"]["categories"];
-$topic = $result["data"]["topics"];
+$user = $result['data']['user'];
+$topic = $result['data']['topics'];
 ?>
 
-<form action="">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="search" placeholder="Search a topic ...">
-</form>
+<div class="profilIntro">
+    <figure>
+        <img src="<?=$user->getAvatar()?>" alt="profil picture">
+
+        <figcaption>
+            <h2><?=$user->getPseudo()?></h2>
+
+        </figcaption>
+    </figure>
+    
+
+</div>
+
 
 
 
 <section class="posts">
-
-    <h1><?=$categories->getNameCategory()?></h1>
-
     
     <article>
         <div class="authorInfo">

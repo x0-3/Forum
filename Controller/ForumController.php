@@ -8,6 +8,7 @@
     use Model\Managers\TopicManager;
     use Model\Managers\MessageManager;
     use Model\Managers\CategoryManager;
+    use Model\Managers\UserManager;
 
     class ForumController extends AbstractController implements ControllerInterface{
 
@@ -49,6 +50,19 @@
                 "data" => [
                     "topic" => $topicManager->findOneById($id),
                     "messages" => $messageManager->TopicMessage($id),
+                ]
+            ];
+        }
+
+        public function detailUser($id){
+            $userManager = new UserManager();
+            $topicManager = new TopicManager();
+
+            return [
+                "view" => VIEW_DIR."forum/DetailUser.php",
+                "data" => [
+                    "user" => $userManager->findOneById($id),
+                    "topics" =>$topicManager->TopicUser($id),
                 ]
             ];
         }

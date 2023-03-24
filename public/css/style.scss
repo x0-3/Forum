@@ -54,7 +54,7 @@
 
 
         main{
-            padding-left: 118px;
+            padding-left: 96px;
 
             .listCategories{
                 height: 66vh;
@@ -180,6 +180,25 @@
                         padding: 65px;
                         margin-bottom: 35px;
                         
+                    }
+                }
+            }
+
+            .profilIntro{
+                width: 100%;
+                display: flex;
+                align-items: flex-end;
+                background-color: lightgrey;
+                height: 41vh;
+
+                figure{
+                    display: flex;
+                    align-items: center;
+
+                    img{
+                        border-radius: 100%;
+                        width: 60%;
+                        margin: 0 14px 12px 17px;
                     }
                 }
             }

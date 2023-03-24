@@ -42,7 +42,7 @@
   color: #6a9f91;
 }
 * body main {
-  padding-left: 118px;
+  padding-left: 96px;
 }
 * body main .listCategories {
   height: 66vh;
@@ -146,6 +146,22 @@
   border-radius: 10px;
   padding: 65px;
   margin-bottom: 35px;
+}
+* body main .profilIntro {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  background-color: lightgrey;
+  height: 41vh;
+}
+* body main .profilIntro figure {
+  display: flex;
+  align-items: center;
+}
+* body main .profilIntro figure img {
+  border-radius: 100%;
+  width: 60%;
+  margin: 0 14px 12px 17px;
 }
 * body footer {
   background-color: #1E1637;

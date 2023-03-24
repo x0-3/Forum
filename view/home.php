@@ -21,7 +21,7 @@ $topics = $result["data"]['topics'];
                     
                 </figure>
 
-                <a href="#">
+                <a href="index.php?ctrl=forum&action=detailUser&id=<?=$topic->getUser()->getId()?>">
                     <p><?=$topic->getUser()->getPseudo()?></p>
                     
                 </a>
