@@ -64,10 +64,16 @@
 
         /**
          * Get the value of lockTopic
+         * if locked then show closed lock 
+         * else open lock
          */ 
         public function getLockTopic()
         {
-                return $this->lockTopic;
+                if ($this->lockTopic == true) {
+                        return "<i class='fa-solid fa-lock'></i>";
+                }else{
+                        return "<i class='fa-solid fa-lock-open'></i>";
+                }
         }
 
         /**
