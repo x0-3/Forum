@@ -21,6 +21,7 @@
             $sql = "SELECT *
                     FROM " . $this->tableName . " a
                     WHERE a.category_id = :id
+                    ORDER BY YEAR(topicCreatedAt) DESC, MONTH(topicCreatedAt) DESC,  DAY(topicCreatedAt) DESC
                     ";
                 
             return $this->getMultipleResults(

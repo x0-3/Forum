@@ -20,7 +20,8 @@ class MessageManager extends Manager{
         $sql = "SELECT *
                 FROM ".$this->tableName." a
                 WHERE a.topic_id = :id
-                ";
+                ORDER BY YEAR(messCreatedAt) DESC, MONTH(messCreatedAt) DESC, DAY(messCreatedAt) DESC
+            ";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true), 
