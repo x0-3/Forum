@@ -69,13 +69,25 @@
 
         // FIXME:add an insert into look into the syntaxe
         public function addMessage($data){
-
+    
             $messageManager = new MessageManager();
-
+    
             return [
                 "view" => VIEW_DIR."forum/addMessage.php",
                 "data" => [
                     "messages" => $messageManager->add($data),
+                ]
+            ];
+        }
+        // FIXME:add an insert into look into the syntaxe
+        public function addTopic($data){
+    
+            $topicManager = new TopicManager();
+    
+            return [
+                "view" => VIEW_DIR."forum/addTopic.php",
+                "data" => [
+                    "topics" => $topicManager->add($data),
                 ]
             ];
         }

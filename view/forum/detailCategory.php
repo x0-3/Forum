@@ -11,7 +11,7 @@ $topic = $result["data"]["topics"];
     </form>
     <div class="categoryName">
         <h1><?=$categories ->getNameCategory()?></h1>
-        <a href="#" class="fa-solid fa-plus"></a>
+        <a href="index.php?ctrl=forum&action=addTopic&id=<?=$categories->getId()?>" class="fa-solid fa-plus"></a>
     </div>
     
     <?php
