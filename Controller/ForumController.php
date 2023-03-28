@@ -71,14 +71,27 @@
         public function addMessage($data){
     
             $messageManager = new MessageManager();
-    
+            // $topicManager = new TopicManager();
+
+            if(isset($_POST['submit'])){
+                $data = $_POST['text'];
+                
+                filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                
+                return [
+                    "view" => VIEW_DIR."forum/addMessage.php",
+                    "data" => [
+                        "messages" => $messageManager->add($data),
+                    ]
+                ];
+            }else
+
             return [
                 "view" => VIEW_DIR."forum/addMessage.php",
-                "data" => [
-                    "messages" => $messageManager->add($data),
-                ]
             ];
+                
         }
+
         // FIXME:add an insert into look into the syntaxe
         public function addTopic($data){
     
@@ -88,7 +101,7 @@
                 "view" => VIEW_DIR."forum/addTopic.php",
                 "data" => [
                     "topics" => $topicManager->add($data),
-                ]
+                    ]
             ];
         }
     }
