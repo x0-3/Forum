@@ -5,7 +5,8 @@ $topics = $result["data"]['topics'];
 ?>
 
 <form action="#" method="post">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="submit" name="search" value="">
+    <i type="submit" class="fa-solid fa-magnifying-glass"></i>
     <input type="search" name="search" id="search" placeholder="Search a topic ..." autocomplete="on">
 </form>
 
