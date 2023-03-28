@@ -67,6 +67,8 @@
             ];
         }
 
+        // TODO:Add a message form function
+        
         // FIXME:add an insert into look into the syntaxe
         public function addMessage($data){
     

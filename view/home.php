@@ -4,6 +4,8 @@ $topics = $result["data"]['topics'];
 
 ?>
 
+<a href="index.php?ctrl=security&action=registerForm">signUp</a>
+
 <form action="#" method="post">
     <input type="submit" name="search" value="">
     <i type="submit" class="fa-solid fa-magnifying-glass"></i>
