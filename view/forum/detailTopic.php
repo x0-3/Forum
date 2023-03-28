@@ -36,27 +36,36 @@ $messages = $result["data"]["messages"];
         <a href="index.php?ctrl=forum&action=addMessage&id=<?=$topic->getId()?>" class="fa-solid fa-plus"></a>
     </div>
 
-    <?php
-    foreach ($messages as $message){
-        ?>
-        
-        <div class="message">
-            
 
-            <div class="authorInfo">
-        
-                <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
-                    <p><?=$message->getUser()->getPseudo()?></p>
-                </a>
-        
-                <p><?=$message->getMessCreatedAt()?></p>
-        
-            </div>
-        
-            <p><?=$message->getText()?></p>
-        
-        </div>
     <?php
+    if(isset($messages)){
+
+
+        foreach ($messages as $message){
+            ?>
+            
+            <div class="message">
+                
+
+                <div class="authorInfo">
+            
+                    <a href="index.php?ctrl=forum&action=detailUser&id=<?=$message->getUser()->getId()?>">
+                        <p><?=$message->getUser()->getPseudo()?></p>
+                    </a>
+            
+                    <p><?=$message->getMessCreatedAt()?></p>
+            
+                </div>
+            
+                <p><?=$message->getText()?></p>
+            
+            </div>
+        <?php
+        }
+    } else {
+        ?>
+        <h3>there no messages for this topic</h3>
+        <?php
     }
     ?>
 </section>
