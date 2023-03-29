@@ -42,12 +42,84 @@
 * body header nav ul li a:hover {
   color: #6a9f91;
 }
+* body header .account {
+  display: flex;
+  height: 59vh;
+  align-items: flex-end;
+  justify-content: center;
+}
+* body header .account ul {
+  list-style: none;
+}
+* body header .account ul li a.fa-solid {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  margin: 17px 0;
+}
 * body main {
-  padding-left: 96px;
+  padding-left: 93px;
   min-height: 100vh;
 }
 * body main .listCategories {
   height: 66vh;
+}
+* body main .connection {
+  position: absolute;
+  width: 93%;
+  background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS6bc3jxkwL-Rqd_ttgRdORyK0eTlg_LSiS5IxityPOT1y4PnS0");
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+* body main .connection .connection_form {
+  display: flex;
+  flex-direction: column;
+  height: 88vh;
+  justify-content: center;
+  background-color: rgba(30, 22, 55, 0.65);
+  width: 50%;
+  align-items: center;
+  margin: auto;
+  border-radius: 15px;
+  position: relative;
+}
+* body main .connection .connection_form h1 {
+  color: white;
+}
+* body main .connection .connection_form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+* body main .connection .connection_form form input, * body main .connection .connection_form form button {
+  padding: 10px;
+  margin: 15px;
+  border-radius: 9px;
+  width: 100%;
+  border: none;
+}
+* body main .connection .connection_form form #avatar {
+  color: white;
+  cursor: pointer;
+}
+* body main .connection .connection_form form button {
+  width: 82%;
+  background-color: #629F91;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+* body main .connection .connection_form form button:hover {
+  color: #629F91;
+  background-color: white;
+}
+* body main .connection .connection_form form a {
+  text-decoration: none;
+  color: white;
+}
+* body main .connection .connection_form form a:hover {
+  color: #629F91;
 }
 * body main form {
   display: flex;

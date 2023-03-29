@@ -52,15 +52,107 @@
                 }
             }
 
+            .account{
+                display: flex;
+                height: 59vh;
+                align-items: flex-end;
+                justify-content: center;
+
+                ul {
+                    list-style: none;
+
+                    li{
+
+                        a.fa-solid {
+                            text-decoration: none;
+                            color: white;
+                            font-size: x-large;
+                            margin: 17px 0;
+                        }
+                    }
+                }
+            }
+
         }
 
 
         main{
-            padding-left: 96px;
+            padding-left: 93px;
             min-height: 100vh;
 
             .listCategories{
                 height: 66vh;
+            }
+
+            .connection{
+
+                position: absolute;
+                width: 93%;
+                background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS6bc3jxkwL-Rqd_ttgRdORyK0eTlg_LSiS5IxityPOT1y4PnS0");
+                display: flex;
+                align-items: center;
+                height: 100vh;
+
+                .connection_form{
+                    display: flex;
+                    flex-direction: column;
+                    height: 88vh;
+                    justify-content: center;
+                    background-color: rgba(30, 22, 55, 0.65);
+                    width: 50%;
+                    align-items: center;
+                    margin: auto;
+                    border-radius: 15px;
+                    position: relative;
+                    
+
+
+                    h1{
+                        color: white;
+                    }
+    
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+    
+                        input, button{
+                            padding: 10px;
+                            margin: 15px;
+                            border-radius: 9px;
+                            width: 100%;
+                            border: none;
+                        }
+    
+                        #avatar{
+                            color: white;
+                            cursor: pointer;
+                        }
+
+                        button {
+                            width: 82%;
+                            background-color: #629F91;
+                            color: white;
+                            font-size: large;
+                            cursor: pointer;
+
+                            &:hover{
+                                color: #629F91;
+                                background-color: white; 
+                            }
+                        }
+
+                        a{
+                            text-decoration: none;
+                            color: white;
+
+                            &:hover{
+                                color: #629F91;
+                            }
+                        }
+                    }
+                }
+
             }
 
             form{
