@@ -68,42 +68,54 @@
         }
 
         // TODO:Add a message form function
-        
-        // FIXME:add an insert into look into the syntaxe
-        public function addMessage($data){
-    
-            $messageManager = new MessageManager();
-            // $topicManager = new TopicManager();
-
-            if(isset($_POST['submit'])){
-                $data = $_POST['text'];
-                
-                filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                
-                return [
-                    "view" => VIEW_DIR."forum/addMessage.php",
-                    "data" => [
-                        "messages" => $messageManager->add($data),
-                    ]
-                ];
-            }else
-
-            return [
+        public function messageForm(){
+            return[
                 "view" => VIEW_DIR."forum/addMessage.php",
+                "data" => null,
             ];
-                
         }
 
         // FIXME:add an insert into look into the syntaxe
-        public function addTopic($data){
+        // public function addMessage($data){
     
-            $topicManager = new TopicManager();
-    
-            return [
+        //     $messageManager = new MessageManager();
+        //     // $topicManager = new TopicManager();
+
+        //     if(isset($_POST['submit'])){
+        //         $data = $_POST['text'];
+                
+        //         filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        //         if ($data) {
+        //             return [
+        //                 "view" => VIEW_DIR."forum/addMessage.php",
+        //                 "data" => [
+        //                     "messages" => $messageManager->add($data),
+        //                 ]
+        //             ];
+        //         }
+                
+        //     }   
+        // }
+
+
+        // change redirection 
+        public function topicForm(){
+            return[
                 "view" => VIEW_DIR."forum/addTopic.php",
-                "data" => [
-                    "topics" => $topicManager->add($data),
-                    ]
+                "data" => null,
             ];
         }
+
+        // FIXME:add an insert into look into the syntaxe
+        // public function addTopic($data){
+    
+        //     $topicManager = new TopicManager();
+    
+        //     return [
+        //         "view" => VIEW_DIR."forum/addTopic.php",
+        //         "data" => [
+        //             "topics" => $topicManager->add($data),
+        //             ]
+        //     ];
+        // }
     }

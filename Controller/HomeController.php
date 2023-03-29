@@ -22,4 +22,33 @@
                 ]
             ];
         }
+
+        
+
+        public function users(){
+            $this->restrictTo("ROLE_USER");
+
+            $manager = new UserManager();
+            $users = $manager->findAll(['registerdate', 'DESC']);
+
+            return [
+                "view" => VIEW_DIR."security/users.php",
+                "data" => [
+                    "users" => $users
+                ]
+            ];
+        }
+
+        public function forumRules(){
+            
+            return [
+                "view" => VIEW_DIR."rules.php"
+            ];
+        }
+
+        /*public function ajax(){
+            $nb = $_GET['nb'];
+            $nb++;
+            include(VIEW_DIR."ajax.php");
+        }*/
     }

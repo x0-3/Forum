@@ -33,7 +33,7 @@ $messages = $result["data"]["messages"];
 
     <div class="messTitle">
         <h1>Messages</h1>
-        <a href="index.php?ctrl=forum&action=addMessage&id=<?=$topic->getId()?>" class="fa-solid fa-plus"></a>
+        <a href="index.php?ctrl=forum&action=messageForm&id=<?=$topic->getId()?>" class="fa-solid fa-plus"></a>
     </div>
 
 
