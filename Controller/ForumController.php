@@ -76,26 +76,25 @@
         }
 
         // FIXME:add an insert into look into the syntaxe
-        // public function addMessage($data){
+        public function addMessage($data){
     
-        //     $messageManager = new MessageManager();
-        //     // $topicManager = new TopicManager();
+            $messageManager = new MessageManager();
 
-        //     if(isset($_POST['submit'])){
-        //         $data = $_POST['text'];
+            if(isset($_POST['submit'])){
+                $data = $_POST['text'];
                 
-        //         filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        //         if ($data) {
-        //             return [
-        //                 "view" => VIEW_DIR."forum/addMessage.php",
-        //                 "data" => [
-        //                     "messages" => $messageManager->add($data),
-        //                 ]
-        //             ];
-        //         }
+                filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if ($data) {
+                    return [
+                        "view" => VIEW_DIR."forum/addMessage.php",
+                        "data" => [
+                            "messages" => $messageManager->add($data),
+                        ]
+                    ];
+                }
                 
-        //     }   
-        // }
+            }   
+        }
 
 
         // change redirection 
