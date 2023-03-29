@@ -29,8 +29,7 @@
 
             $target_dir = "public/upload/"; //directory of where the file is going to be
             
-            // used hash to with the algorithm sha256 
-            $target_file = $target_dir . basename(hash('sha256',$_FILES["avatar"]["name"])); //specifies the path of the img that gonna be uploaded
+            $target_file = $target_dir . basename(uniqid() . $_FILES["avatar"]["name"]); //specifies the path of the img that gonna be uploaded
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
 
