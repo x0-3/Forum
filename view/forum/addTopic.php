@@ -1,17 +1,8 @@
-<!-- // FIXME:add an insert into look into the syntaxe -->
-<?php
-// $message = ["data"]["topics"];
-
-// $data = $_POST['text'];
-
-// filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-?>
-
-
 <section class="addTopic">
     <h1>Add a comment for</h1>
 
-    <form action="post">
-        <input type="text" value="text" name="text" id="text" placeholder="What do you want to write about ...">
+    <form action="index.php?ctrl=forum&action=addTopic" method="post">
+        <input type="text" name="title" id="text" placeholder="What do you want to write about ...">
+        <input type="submit" value="add Topic">
     </form>
 </section>

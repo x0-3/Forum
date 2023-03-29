@@ -1,13 +1,3 @@
-<!-- // FIXME:add an insert into look into the syntaxe -->
-<?php
-// $message = ["data"]["message"];
-// $topic = ["data"]["topic"];
-// $data = $_POST['text'];
-
-// filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-?>
-
 
 <section class="addComment">
     <h1>Add a comment</h1>

@@ -67,37 +67,37 @@
             ];
         }
 
-        // TODO:Add a message form function
-        public function messageForm(){
+        public function messageForm($id){
+
             return[
                 "view" => VIEW_DIR."forum/addMessage.php",
                 "data" => null,
             ];
         }
 
-        // FIXME:add an insert into look into the syntaxe
+        // FIXME: need to retrieve user_id and topic_id
         public function addMessage($data){
-    
-            $messageManager = new MessageManager();
 
-            if(isset($_POST['submit'])){
-                $data = $_POST['text'];
-                
-                filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                if ($data) {
-                    return [
-                        "view" => VIEW_DIR."forum/addMessage.php",
-                        "data" => [
-                            "messages" => $messageManager->add($data),
-                        ]
-                    ];
+            if(!empty($_POST)){
+
+                $text = filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($text){
+
+                    $messageManager = new MessageManager();
+
+                    if($messageManager->add([
+                        "text"=> $text,
+                    ]));{
+                        // header("location:index.php");
+                        echo "message ajouter";
+                    }
                 }
-                
-            }   
+            }
+
         }
 
 
-        // change redirection 
         public function topicForm(){
             return[
                 "view" => VIEW_DIR."forum/addTopic.php",
@@ -105,16 +105,26 @@
             ];
         }
 
-        // FIXME:add an insert into look into the syntaxe
-        // public function addTopic($data){
-    
-        //     $topicManager = new TopicManager();
-    
-        //     return [
-        //         "view" => VIEW_DIR."forum/addTopic.php",
-        //         "data" => [
-        //             "topics" => $topicManager->add($data),
-        //             ]
-        //     ];
-        // }
+        // FIXME: need to retrieve user_id and category_id
+        public function addTopic($data){
+
+            if (!empty($_POST)) {
+                
+                $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if ($title) {
+
+                    $topicManager = new TopicManager();
+
+                    if ($topicManager->add([
+                        "title" =>$title,
+                    ])) {
+
+                        // header("location:index.php");
+                        echo "Topic ajouter";
+
+                    }
+                }
+            }
+        }
     }
