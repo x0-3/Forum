@@ -1,12 +1,12 @@
 <h1>signUp form</h1>
 
-<?php
-var_dump($_POST);
-?>
-<form action="index.php?ctrl=security&action=register" method="post" enctype="multipart">
+<form action="index.php?ctrl=security&action=register" method="post" enctype="multipart/form-data">
 
     <input type="pseudo" name ="pseudo" placeholder="pseudo" required>
-    
+
+    <input type="file" name="avatar" id="avatar">
+
+
     <input type="email" name="email" placeholder="email" required>
     
     <input type="password" name="password" placeholder="password" required>
