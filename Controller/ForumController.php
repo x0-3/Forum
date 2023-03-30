@@ -131,29 +131,34 @@
                         "topic_id"=>$topic,
                     ]);
 
-                    // header("location:index.php");
                     echo "message ajouter";
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
-
-                    var_dump($topic);
-    
                 }
             }
 
         }
 
 
-        public function topicForm(){
+        public function topicForm($id){
+            $categoryManager = new CategoryManager();
+
             return[
                 "view" => VIEW_DIR."forum/addTopic.php",
-                "data" => null,
+                "data" => [
+                    "category" => $categoryManager->findOneById($id),
+
+                ]
+
             ];
         }
 
-        // FIXME: need to retrieve user_id and category_id
-        public function addTopic($data){
+        public function addTopic(){
 
             if (!empty($_POST)) {
+
+                $user= SESSION::getUser()->getId();
+
+                $categories = $_GET['id'];   
                 
                 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -161,15 +166,14 @@
 
                     $topicManager = new TopicManager();
 
-                    if ($topicManager->add([
+                    $topicManager->add([
                         "title" =>$title,
-                    ])) {
-
-                        // header("location:index.php");
-                        echo "Topic ajouter";
-
-                    }
+                        "category_id" =>$categories,
+                        "user_id" =>$user,
+                    ]);
+                    
                 }
+                header("location:index.php?ctrl=forum&action=listCategories");
             }
         }
     }
