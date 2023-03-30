@@ -58,14 +58,20 @@
 
         public function like(){
             
+            // if button submit pressed
             if(!isset($_POST['submit'])){
                 $likeManager = new LikeManager();
                 
+                // get the user in session
                 $user = SESSION::getUser()->getId();
+
+                // get the id of the topic
                 $topic = $_GET['id'];
                 
+                // look if there is a dublicate of the user
                 $userLike=$likeManager->findOneByPseudo($user);
 
+                // if the user hasn't liked the post yet then insert into db
                 if (!$userLike) {
                     
                     $likeManager->add([
