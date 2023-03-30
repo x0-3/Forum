@@ -1,6 +1,8 @@
 <?php
 $topic = $result["data"]["topic"];
 $messages = $result["data"]["messages"];
+
+// var_dump($topic);
 ?>
 
 
@@ -27,8 +29,16 @@ $messages = $result["data"]["messages"];
         <p><?=$topic->getTopicCreatedAt()?></p>
         
         <a href="index.php?ctrl=forum&action=detailTopic&id=<?=$topic->getId()?>">
-        <p><?=$topic->getTitle()?></p>
+            <p><?=$topic->getTitle()?></p>
         </a>
+
+        <form action="index.php?ctrl=forum&action=like&id=<?=$topic->getId()?>" method="post">
+
+            <button type="submit"><i class="fa-regular fa-thumbs-up"></i></button>
+            
+
+        </form>
+
     </article>
 
     <div class="messTitle">

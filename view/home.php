@@ -1,7 +1,7 @@
 <?php
 $topics = $result["data"]['topics'];
 
-// var_dump($_SESSION['user']);
+var_dump($_SESSION['user']);
 ?>
 
 <form action="#" method="post">

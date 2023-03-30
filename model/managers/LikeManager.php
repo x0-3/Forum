@@ -5,29 +5,26 @@ namespace Model\Managers;
 use App\Manager;
 use App\DAO;
 
-class UserManager extends Manager{
+class LikeManager extends Manager{
 
-    protected $className = "Model\Entities\User";
-    protected $tableName = "user";
-
+    protected $className = "Model\Entities\Like";
+    protected $tableName = "like";
 
     public function __construct(){
         parent::connect();
     }
 
-    
     // find a pseudo 
     public function findOneByPseudo($data){
-        $sql = "SELECT u.id_user, u.pseudo, u.avatar
+        $sql = "SELECT *
         FROM `".$this->tableName."` u
-        WHERE u.pseudo = :pseudo
+        WHERE u.user_id = :id
         ";
-
+        
         return $this->getOneOrNullResult(
-            DAO::select($sql, ['pseudo' => $data], false), 
+            DAO::select($sql, ['id' => $data], false), 
             $this->className
         );
     }
-
 
 }

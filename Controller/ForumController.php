@@ -9,6 +9,7 @@
     use Model\Managers\MessageManager;
     use Model\Managers\CategoryManager;
     use Model\Managers\UserManager;
+    use Model\Managers\LikeManager;
 
     class ForumController extends AbstractController implements ControllerInterface{
 
@@ -52,6 +53,29 @@
                     "messages" => $messageManager->TopicMessage($id),
                 ]
             ];
+        }
+
+
+        public function like(){
+            
+            if(!isset($_POST['submit'])){
+                $likeManager = new LikeManager();
+                
+                $user = SESSION::getUser()->getId();
+                $topic = $_GET['id'];
+                
+                $userLike=$likeManager->findOneByPseudo($user);
+
+                if (!$userLike) {
+                    
+                    $likeManager->add([
+                        "user_id" => $user,
+                        "topic_id" => $topic,
+                    ]);
+                    
+                }   
+            header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+            }
         }
 
         public function detailUser($id){
