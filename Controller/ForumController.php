@@ -80,6 +80,8 @@
 
             if(!empty($_POST)){
 
+                $topic = $_GET['topic_id']; 
+
                 $text = filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
                 if($text){
@@ -88,6 +90,7 @@
 
                     if($messageManager->add([
                         "text"=> $text,
+                        "topic_id"=>$topic,
                     ]));{
                         // header("location:index.php");
                         echo "message ajouter";
