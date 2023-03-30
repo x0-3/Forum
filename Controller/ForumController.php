@@ -99,18 +99,25 @@
 
         public function messageForm($id){
 
+            $topicManager = new TopicManager();
+
             return[
                 "view" => VIEW_DIR."forum/addMessage.php",
-                "data" => null,
+                "data" => [
+                    "topic" => $topicManager->findOneById($id),
+
+                ]
+
             ];
         }
 
-        // FIXME: need to retrieve user_id and topic_id
-        public function addMessage($data){
+        public function addMessage(){
 
             if(!empty($_POST)){
 
-                $topic = $_GET['topic_id']; 
+                $user = session::getUser()->getId();
+
+                $topic = $_GET['id']; 
 
                 $text = filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -118,13 +125,18 @@
 
                     $messageManager = new MessageManager();
 
-                    if($messageManager->add([
+                    $messageManager->add([
                         "text"=> $text,
+                        "user_id" => $user,
                         "topic_id"=>$topic,
-                    ]));{
-                        // header("location:index.php");
-                        echo "message ajouter";
-                    }
+                    ]);
+
+                    // header("location:index.php");
+                    echo "message ajouter";
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
+                    var_dump($topic);
+    
                 }
             }
 
