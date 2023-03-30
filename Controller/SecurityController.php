@@ -2,6 +2,7 @@
 
     namespace Controller;
 
+    // use Controller\HomeController;
     use App\Session;
     use App\AbstractController;
     use App\ControllerInterface;
@@ -129,10 +130,9 @@
                                 "password" => $hash,
                             ])) {
                                 
-                                echo "vous ête bien inscrit";
-
                                 // else it redirects the user to the homePage
                                 header("location:index.php");
+                                SESSION::addFlash("success", "vous ête bien inscrit");
                             }
                         }
                     }
@@ -146,13 +146,72 @@
             ];
         }
 
-        // TODO:
+
+        public function loginForm(){
+
+            return [
+                "view" => VIEW_DIR."security/login.php",
+                "data" => null,
+            ];
+        }
+
         public function login(){
 
-            // password_verify();
+            // if form is not empty
+            if (!empty($_POST)) {
 
-            // user en session
-            // SESSION::$user;
+                // filter the input
+                $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                // verify the filters
+                if($pseudo && $password) {
+
+                    $userManager = new UserManager();
+                    $user = $userManager ->findOneByPseudo($pseudo);
+
+                    // if user is found in db
+                    if($user){
+                        
+                        // hash password
+                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                        
+                        // use password_verify
+                        if(password_verify($password, $hash)){
+
+                            SESSION::setUser($user);
+                            
+                            return [
+                                "view" => VIEW_DIR . "home.php",
+                                "data" => null,
+                                SESSION::addFlash("success", "success"),
+        
+                            ];
+                        }else {
+
+                            SESSION::addFlash("error", "username or password incorrect");
+
+                            return [
+                                "view" => VIEW_DIR . "security/login.php",
+                                "data" => null,
+        
+                            ];
+
+                        }
+                    } else {
+
+                        
+                        return [
+                            "view" => VIEW_DIR . "security/login.php",
+                            "data" => null,
+                            SESSION::addFlash("error", "username or password incorrect"),
+    
+                        ];
+                    }
+
+                }
+                
+            }
         }
 
         public function modifyPassword(){

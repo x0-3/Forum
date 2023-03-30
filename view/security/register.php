@@ -11,7 +11,6 @@
         
             <input type="file" name="avatar" id="avatar">
         
-        
             <input type="email" name="email" placeholder="email" required>
             
             <input type="password" name="password" placeholder="password" required>
@@ -20,7 +19,7 @@
         
             <button type="submit">Register Now</button>
 
-            <a href="#">Sign In</a>
+            <a href="index.php?ctrl=security&action=loginForm">Sign In</a>
         
         </form>
     </div>
