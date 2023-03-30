@@ -180,11 +180,11 @@
                         if(password_verify($password, $hash)){
 
                             SESSION::setUser($user);
+                            SESSION::addFlash("success", "success");
                             
                             return [
                                 "view" => VIEW_DIR . "home.php",
                                 "data" => null,
-                                SESSION::addFlash("success", "success"),
         
                             ];
                         }else {
@@ -200,11 +200,11 @@
                         }
                     } else {
 
+                        SESSION::addFlash("error", "username or password incorrect");
                         
                         return [
                             "view" => VIEW_DIR . "security/login.php",
                             "data" => null,
-                            SESSION::addFlash("error", "username or password incorrect"),
     
                         ];
                     }

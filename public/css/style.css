@@ -64,6 +64,9 @@
 * body main .listCategories {
   height: 66vh;
 }
+* body main .posts {
+  margin-bottom: 46px;
+}
 * body main .connection {
   position: absolute;
   width: 93%;
@@ -78,7 +81,7 @@
   height: 88vh;
   justify-content: center;
   background-color: rgba(30, 22, 55, 0.65);
-  width: 50%;
+  width: 45%;
   align-items: center;
   margin: auto;
   border-radius: 15px;
@@ -275,7 +278,6 @@
 * body footer {
   background-color: #1E1637;
   width: 100%;
-  margin-top: 46px;
 }
 * body footer ul {
   display: flex;
