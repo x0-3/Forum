@@ -176,37 +176,39 @@
                         // hash password
                         $hash = password_hash($password, PASSWORD_DEFAULT);
                         
-                        // use password_verify
+                        // use password_verify to see if the password input is the same as password in db
                         if(password_verify($password, $hash)){
 
-                            SESSION::setUser($user);
-                            SESSION::addFlash("success", "success");
+                            SESSION::setUser($user); //add the user to session
                             
-                            return [
-                                "view" => VIEW_DIR . "home.php",
-                                "data" => null,
-        
-                            ];
+                            ABSTRACTCONTROLLER :: redirectTo("home", "home", null);                            
+                            
+                            SESSION::addFlash("success", "bien connecter"); //show a message 
+                            // header("location:index.php");
+
+                            // if password not found then redirect to login form and display a message
                         }else {
 
-                            SESSION::addFlash("error", "username or password incorrect");
-
+                            
                             return [
                                 "view" => VIEW_DIR . "security/login.php",
                                 "data" => null,
-        
+                                
                             ];
-
+                            
+                            SESSION::addFlash("error", "username or password incorrect");
                         }
+
+                        // if username is not stored in db then display a message and redirect to loginform 
                     } else {
 
-                        SESSION::addFlash("error", "username or password incorrect");
                         
                         return [
                             "view" => VIEW_DIR . "security/login.php",
                             "data" => null,
-    
+                            
                         ];
+                        SESSION::addFlash("error", "username or password incorrect");
                     }
 
                 }
@@ -214,10 +216,12 @@
             }
         }
 
+        // TODO:
         public function modifyPassword(){
             
         }
 
+        // TODO:
         public function logout(){
 
             // enlever utilisateur de la session
