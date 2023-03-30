@@ -16,6 +16,9 @@
 
 <body>
 
+    <h3><?= App\Session::getFlash("success") ?></h3>
+    <h3><?= App\Session::getFlash("error") ?></h3>
+    
     <header>
         <a href="index.php">
             <figure>
@@ -27,8 +30,7 @@
             <ul>
                 <li><a href="index.php" class="fa-solid fa-house"></a></li>
                 <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
-                <li><a href="#" class="fa-solid fa-arrow-right-from-bracket"></a></li>
-                
+                <li><a href="index.php?ctrl=security&action=logout" class="fa-solid fa-arrow-right-from-bracket"></a></li>
             </ul>
         </nav>
 

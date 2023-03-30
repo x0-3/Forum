@@ -181,10 +181,9 @@
 
                             SESSION::setUser($user); //add the user to session
                             
-                            ABSTRACTCONTROLLER :: redirectTo("home", "home", null);                            
+                            ABSTRACTCONTROLLER :: redirectTo("home", "home");                            
                             
-                            SESSION::addFlash("success", "bien connecter"); //show a message 
-                            // header("location:index.php");
+                            SESSION::addFlash("success", "bien connecté"); //show a message 
 
                             // if password not found then redirect to login form and display a message
                         }else {
@@ -216,16 +215,15 @@
             }
         }
 
-        // TODO:
-        public function modifyPassword(){
-            
-        }
 
-        // TODO:
         public function logout(){
 
-            // enlever utilisateur de la session
-            // redirect vers home ou login
-            // message de confirmation
+            session_destroy();
+
+            // ABSTRACTCONTROLLER::redirectTo("security","loginForm");
+            
+            header("location:index.php?ctrl=security&action=loginForm");
+
+            SESSION::addFlash("success", "deconnected");
         }
     }

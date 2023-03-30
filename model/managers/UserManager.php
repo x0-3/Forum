@@ -18,7 +18,7 @@ class UserManager extends Manager{
     
     // find a pseudo 
     public function findOneByPseudo($data){
-        $sql = "SELECT u.pseudo
+        $sql = "SELECT u.pseudo, u.avatar
         FROM ".$this->tableName." u
         WHERE u.pseudo = :pseudo
         ";
