@@ -14,7 +14,7 @@ class LikeManager extends Manager{
         parent::connect();
     }
 
-    // find a pseudo 
+    // find if the topic was liked by the user
     public function findOneByPseudo($user, $topic){
         $sql = "SELECT *
         FROM `".$this->tableName."` u
@@ -38,7 +38,7 @@ class LikeManager extends Manager{
         return DAO::delete($sql, [$topic, $user]); 
     }
 
-
+    // count the table like and add it to the table topic in the column like on the corresponding id of the topic 
     public function countLike($topic){
         $sql = "UPDATE topic t 
                 SET `like` = (SELECT COUNT(*) FROM `like` l WHERE l.topic_id = ? )WHERE t.id_topic = ?
