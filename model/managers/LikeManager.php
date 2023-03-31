@@ -50,4 +50,15 @@ class LikeManager extends Manager{
         return DAO::delete($sql, [$topic, $user]); 
     }
 
+    public function countLike($topic){
+        $sql = "UPDATE topic t 
+                SET `like` = (SELECT COUNT(*) FROM `like` l WHERE l.topic_id = ? )WHERE t.id_topic = ?
+                ";
+
+        return $this->getOneOrNullResult(
+            DAO::select($sql, [$topic, $topic], false), 
+            $this->className
+        );
+    }
+
 }

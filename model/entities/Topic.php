@@ -12,6 +12,7 @@
         private $lockTopic;
         private Category $category;
         private User $user;
+        private $like;
         
 
         public function __construct($data){
@@ -147,6 +148,26 @@
         public function setId($id)
         {
                 $this->id = $id;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of like
+         */ 
+        public function getLike()
+        {
+                return $this->like;
+        }
+
+        /**
+         * Set the value of like
+         *
+         * @return  self
+         */ 
+        public function setLike($like)
+        {
+                $this->like = $like;
 
                 return $this;
         }

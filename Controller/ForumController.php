@@ -51,13 +51,13 @@
                 "data" => [
                     "topic" => $topicManager->findOneById($id),
                     "messages" => $messageManager->TopicMessage($id),
-                ]
+                    ]
             ];
         }
 
 
         public function like(){
-            
+
             // if button submit pressed
             if(empty($_POST)){
                 $likeManager = new LikeManager();
@@ -72,14 +72,16 @@
                 $userLike=$likeManager->findOneByPseudo($user);
                 $TopicLike=$likeManager->findOneByTopic($topic);
 
+
                 // if the user or the topic hasn't been liked yet then add to db
                 if (!$userLike || !$TopicLike) {
-                    
+
 
                     $likeManager->add([
                         "user_id" => $user,
                         "topic_id" => $topic,
                     ]);
+
 
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
 
@@ -91,9 +93,13 @@
                     // and redirect to the topic page
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
                 }
+
+                $likeManager->countLike($topic);
+
             }
 
         }
+
 
         public function detailUser($id){
             $userManager = new UserManager();

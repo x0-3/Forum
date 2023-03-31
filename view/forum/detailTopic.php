@@ -1,8 +1,6 @@
 <?php
 $topic = $result["data"]["topic"];
 $messages = $result["data"]["messages"];
-
-// var_dump($topic);
 ?>
 
 
@@ -34,9 +32,11 @@ $messages = $result["data"]["messages"];
 
         <form action="index.php?ctrl=forum&action=like&id=<?=$topic->getId()?>" method="post">
 
-            <button type="submit"><i class="fa-regular fa-thumbs-up"></i>Like</button>
-        
+            <button type="submit"><?=$topic->getLike() ?  $topic->getLike() : ""?><i class="fa-regular fa-thumbs-up"></i>Like</button>
+
         </form>
+
+            
 
     </article>
 
