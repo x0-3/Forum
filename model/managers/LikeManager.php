@@ -15,27 +15,15 @@ class LikeManager extends Manager{
     }
 
     // find a pseudo 
-    public function findOneByPseudo($data){
+    public function findOneByPseudo($user, $topic){
         $sql = "SELECT *
         FROM `".$this->tableName."` u
-        WHERE u.user_id = :id
+        WHERE u.user_id = ?
+        AND u.topic_id = ?
         ";
         
         return $this->getOneOrNullResult(
-            DAO::select($sql, ['id' => $data], false), 
-            $this->className
-        );
-    }
-
-    // find a topic
-    public function findOneByTopic($data){
-        $sql = "SELECT *
-        FROM `".$this->tableName."` u
-        WHERE u.topic_id = :id
-        ";
-        
-        return $this->getOneOrNullResult(
-            DAO::select($sql, ['id' => $data], false), 
+            DAO::select($sql, [$user, $topic], false), 
             $this->className
         );
     }

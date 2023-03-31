@@ -69,13 +69,13 @@
                 $topic = $_GET['id'];
                 
                 // look if there is a dublicate of the user and the topic
-                $userLike=$likeManager->findOneByPseudo($user);
-                $TopicLike=$likeManager->findOneByTopic($topic);
+                $userLike=$likeManager->findOneByPseudo($user, $topic);
+
+                // $TopicLike=$likeManager->findOneByTopic($topic);
 
 
-                // if the user or the topic hasn't been liked yet then add to db
-                if (!$userLike || !$TopicLike) {
-
+                // if the user hasn't liked the topic then 
+                if (!$userLike) {
 
                     $likeManager->add([
                         "user_id" => $user,
@@ -83,6 +83,7 @@
                     ]);
 
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
                 } else {
 
                     // else if the user has already liked the topic then delete the like from db
