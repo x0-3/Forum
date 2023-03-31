@@ -26,5 +26,16 @@ class LikeManager extends Manager{
             $this->className
         );
     }
+    public function findOneByTopic($data){
+        $sql = "SELECT *
+        FROM `".$this->tableName."` u
+        WHERE u.topic_id = :id
+        ";
+        
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['id' => $data], false), 
+            $this->className
+        );
+    }
 
 }
