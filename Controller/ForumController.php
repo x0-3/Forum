@@ -68,20 +68,30 @@
                 // get the id of the topic
                 $topic = $_GET['id'];
                 
-                // look if there is a dublicate of the user
+                // look if there is a dublicate of the user and the topic
                 $userLike=$likeManager->findOneByPseudo($user);
+                $TopicLike=$likeManager->findOneByTopic($topic);
 
-                // if the user hasn't liked the post yet then insert into db
-                if (!$userLike) {
+                // if the user or the topic hasn't been liked yet then add to db
+                if (!$userLike || !$TopicLike) {
                     
+
                     $likeManager->add([
                         "user_id" => $user,
                         "topic_id" => $topic,
                     ]);
-                    
-                }   
-            header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
+                }
+                // else if the user has already liked the topic then delete the like from db
+
+                
+
+                // and redirect to the topic page
+                header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
             }
+
         }
 
         public function detailUser($id){
