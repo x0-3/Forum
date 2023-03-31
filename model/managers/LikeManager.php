@@ -26,6 +26,8 @@ class LikeManager extends Manager{
             $this->className
         );
     }
+
+    // find a topic
     public function findOneByTopic($data){
         $sql = "SELECT *
         FROM `".$this->tableName."` u
@@ -36,6 +38,15 @@ class LikeManager extends Manager{
             DAO::select($sql, ['id' => $data], false), 
             $this->className
         );
+    }
+
+    // delete a like on a specific id
+    public function delete($id){
+        $sql = "DELETE FROM `".$this->tableName."`
+                WHERE ".$this->tableName."_id = :id
+                ";
+
+        return DAO::delete($sql, ['id' => $id]); 
     }
 
 }
