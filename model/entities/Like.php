@@ -6,7 +6,6 @@ use App\Entity;
 
 final class Like extends Entity{
 
-    private $stat;
     private User $user;
     private Topic $topic;
 
@@ -56,23 +55,4 @@ final class Like extends Entity{
         return $this;
     }
 
-    /**
-     * Get the value of stat
-     */ 
-    public function getStat()
-    {
-        return $this->stat;
-    }
-
-    /**
-     * Set the value of stat
-     *
-     * @return  self
-     */ 
-    public function setStat($stat)
-    {
-        $this->stat = $stat;
-
-        return $this;
-    }
 }

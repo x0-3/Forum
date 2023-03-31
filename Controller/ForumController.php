@@ -82,21 +82,20 @@
                         "topic_id" => $topic,
                     ]);
 
-
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
-
                 } else {
 
                     // else if the user has already liked the topic then delete the like from db
                     $likeManager->deleteLike($topic, $user);
-    
+
                     // and redirect to the topic page
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
                 }
 
+                // count the number of like on a topic
                 $likeManager->countLike($topic);
-
             }
+
 
         }
 
