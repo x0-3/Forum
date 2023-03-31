@@ -47,4 +47,18 @@
             );
         }
 
+        // finds the topics Posted by one user 
+        public function searchBar($topic){
+
+            $sql = "SELECT *
+                    FROM topic 
+                    WHERE title like ? limit 5
+                    ";
+
+            return $this->getMultipleResults(
+                DAO::select($sql, ["%".$topic."%"], true), 
+                $this->className
+            );
+        }
+
     }

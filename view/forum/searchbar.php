@@ -1,15 +1,7 @@
 <?php
 $topics = $result["data"]['topics'];
 
-var_dump($_SESSION['user']);
 ?>
-
-<form action="index.php?ctrl=home&action=searchBar" method="post">
-    <input type="search" name="search" id="search" placeholder="Search a topic ..." autocomplete="on">
-
-    <input type="submit" id="submitButton" name="submit" value="search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-</form>
 
 <section class="posts">
 

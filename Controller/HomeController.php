@@ -46,6 +46,27 @@
             ];
         }
 
+        public function searchBar(){
+            
+            if(isset($_POST['submit'])){
+                $topicManager = new TopicManager();
+
+                $title = filter_input(INPUT_POST, "search", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($title){
+                    $topic = $topicManager->searchBar($title);
+    
+                    return[
+                        "view" => VIEW_DIR. "home.php",
+                        "data" => [
+                            "topics" => $topic,             
+                        ]
+                    ];
+                }
+            }
+        }
+
+
         /*public function ajax(){
             $nb = $_GET['nb'];
             $nb++;
