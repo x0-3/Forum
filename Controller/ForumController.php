@@ -59,7 +59,7 @@
         public function like(){
             
             // if button submit pressed
-            if(!isset($_POST['submit'])){
+            if(empty($_POST)){
                 $likeManager = new LikeManager();
                 
                 // get the user in session
@@ -83,13 +83,14 @@
 
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
 
+                } else {
+
+                    // else if the user has already liked the topic then delete the like from db
+                    $likeManager->delete($topic);
+    
+                    // and redirect to the topic page
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
                 }
-                // else if the user has already liked the topic then delete the like from db
-
-                
-
-                // and redirect to the topic page
-                header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
             }
 
         }
