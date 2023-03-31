@@ -86,7 +86,7 @@
                 } else {
 
                     // else if the user has already liked the topic then delete the like from db
-                    $likeManager->delete($topic);
+                    $likeManager->deleteLike($topic, $user);
     
                     // and redirect to the topic page
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);

@@ -40,13 +40,14 @@ class LikeManager extends Manager{
         );
     }
 
-    // delete a like on a specific id
-    public function delete($topic){
+    // delete a like on a specific id of topic and user id
+    public function deleteLike($topic, $user){
         $sql = "DELETE FROM `".$this->tableName."`
-                WHERE topic_id = :id
+                WHERE topic_id = ?
+                and user_id = ?
                 ";
 
-        return DAO::delete($sql, ['id' => $topic]); 
+        return DAO::delete($sql, [$topic, $user]); 
     }
 
 }
