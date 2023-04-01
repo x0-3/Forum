@@ -11,36 +11,46 @@ var_dump($_SESSION['user']);
     <i class="fa-solid fa-magnifying-glass"></i>
 </form>
 
-<section class="posts">
-
-    <?php
-    foreach($topics as $topic){
-        ?>
-        <article>
-            <div class="authorInfo">
-                <figure>
-                    <img src="<?=$topic->getUser()->getAvatar()?>" alt="avatar">
-                    
-                </figure>
-
-                <a href="index.php?ctrl=forum&action=detailUser&id=<?=$topic->getUser()->getId()?>">
-                    <p><?=$topic->getUser()->getPseudo()?></p>
-                    
-                </a>
-            </div>
-
-            <p><?=$topic->getTopicCreatedAt()?></p>
-
-            <a href="index.php?ctrl=forum&action=detailTopic&id=<?=$topic->getId()?>">
-            <p><?=$topic->getTitle()?></p>
-            </a>
-
-
-        </article>
-    <?php
-    }
+<?php
+if (isset($topics)) {
     ?>
 
-</section>
+    <section class="posts">
+
+        <?php
+        foreach ($topics as $topic) {
+            ?>
+            <article>
+                <div class="authorInfo">
+                    <figure>
+                        <img src="<?= $topic->getUser()->getAvatar() ?>" alt="avatar">
+
+                    </figure>
+
+                    <a href="index.php?ctrl=forum&action=detailUser&id=<?= $topic->getUser()->getId() ?>">
+                        <p><?= $topic->getUser()->getPseudo() ?></p>
+
+                    </a>
+                </div>
+
+                <p><?= $topic->getTopicCreatedAt() ?></p>
+
+                <a href="index.php?ctrl=forum&action=detailTopic&id=<?= $topic->getId() ?>">
+                    <p><?= $topic->getTitle() ?></p>
+                </a>
 
 
+            </article>
+        <?php
+        }
+        ?>
+
+    </section>
+
+<?php
+} else {
+    ?>
+    <h3>Sorry ther is no topic with this name.</h3>
+<?php
+}
+?>
