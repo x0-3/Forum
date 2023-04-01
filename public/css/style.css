@@ -137,6 +137,9 @@
   right: 109px;
   color: #757575;
 }
+* body main form input#submitButton {
+  display: none;
+}
 * body main form input[type=search i] {
   width: 84%;
   padding: 12px;
@@ -184,6 +187,27 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+* body main .posts article form {
+  justify-content: flex-start;
+}
+* body main .posts article form button#submit {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  width: 9%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+* body main .posts article form button#submit i.fa-regular.fa-thumbs-up {
+  margin-right: 7px;
+  font-size: large;
+}
+* body main .posts article form button#submit:hover {
+  color: white;
+  background-color: #1E1637;
 }
 * body main .posts .messTitle {
   display: flex;

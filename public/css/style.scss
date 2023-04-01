@@ -173,6 +173,9 @@
                     color: #757575;
                 }
 
+                input#submitButton {
+                    display: none;
+                }
                 input[type= "search" i]{
                     width: 84%;
                     padding: 12px;
@@ -230,6 +233,32 @@
                         text-decoration: none;
                         color: black;
                         font-weight: bold;
+                    }
+
+                    form{
+                        justify-content: flex-start;
+                        
+                        button#submit {
+                            padding: 6px;
+                            border-radius: 5px;
+                            border: none;
+                            width: 9%;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+
+                            i.fa-regular.fa-thumbs-up {
+                                margin-right: 7px;
+                                font-size: large;
+                            }
+
+                            &:hover{
+                                color: white;
+                                background-color: #1E1637;
+                            }
+                        }
                     }
                 }
                 
