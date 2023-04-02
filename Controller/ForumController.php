@@ -201,7 +201,7 @@
                     ]);
                     
                 }
-                header("location:index.php?ctrl=forum&action=listCategories");
+                header("location:index.php?ctrl=forum&action=detailcategory&id=".$categories);
             }
         }
     }

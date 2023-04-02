@@ -29,7 +29,7 @@ if (isset($topics)) {
             <article>
                 <div class="authorInfo">
                     <figure>
-                        <img src="<?=$topic->getUser()->getAvatar()?>" alt="avatar">
+                        <img src="<?=Session::getUser()->getAvatar()?>" alt="avatar">
                         
                     </figure>
 
