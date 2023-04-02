@@ -6,7 +6,8 @@ $topic = $result["data"]["topic"];
     <h1>Add a comment</h1>
 
     <form action="index.php?ctrl=forum&action=addMessage&id=<?=$topic->getId()?>" method="post" enctype="multipart">
-        <input type="text" name="text" id="text" placeholder="What do you want to write about ...">
+
+        <textarea name="text" id="text" cols="100" rows="10" placeholder="What do you want to write about ..."></textarea>
 
         <input type="submit" value="add comment">
     </form>

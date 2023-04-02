@@ -3,10 +3,12 @@ $categories = $result["data"]["category"]
 ?>
 
 <section class="addTopic">
-    <h1>Add a comment for</h1>
+    <h1>Add a topic</h1>
 
     <form action="index.php?ctrl=forum&action=addTopic&id=<?=$categories->getId()?>" method="post">
-        <input type="text" name="title" id="text" placeholder="What do you want to write about ...">
+
+        <textarea name="title" id="text" cols="100" rows="10" placeholder="What do you want to write about ..."></textarea>
+
         <input type="submit" value="add Topic">
     </form>
 </section>

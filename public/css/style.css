@@ -151,6 +151,7 @@
   padding-top: 30px;
   position: relative;
   margin-bottom: 15px;
+  flex-direction: column;
 }
 * body main form .fa-solid {
   position: absolute;
@@ -165,6 +166,17 @@
   padding: 12px;
   border-radius: 10px;
   border: 2px solid #363979;
+}
+* body main form input[type=submit] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 13px;
+}
+* body main form input[type=submit]:hover {
+  color: white;
+  background-color: #1E1637;
 }
 * body main .posts {
   display: flex;

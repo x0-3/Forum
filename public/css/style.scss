@@ -115,6 +115,11 @@
                 margin-bottom: 46px;
             }
 
+            // form{
+            //     display: flex;
+
+            // }
+
             .connection{
 
                 position: absolute;
@@ -193,6 +198,7 @@
                 padding-top: 30px;
                 position: relative;
                 margin-bottom: 15px;
+                flex-direction: column;
 
                 .fa-solid{
                     position: absolute;
@@ -208,6 +214,19 @@
                     padding: 12px;
                     border-radius: 10px;   
                     border: 2px solid #363979;
+                }
+
+                input[type="submit"] {
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                    cursor: pointer;
+                    margin-top: 13px;
+
+                    &:hover{
+                        color: white;
+                        background-color: #1E1637;
+                    }
                 }
             }
 
