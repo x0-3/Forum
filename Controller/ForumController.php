@@ -114,6 +114,17 @@
             ];
         }
 
+        public function profil($id){
+            $topicManager = new TopicManager();
+
+            return [
+                "view" => VIEW_DIR."forum/profil.php",
+                "data" => [
+                    "topics" =>$topicManager->TopicUser($id),
+                ]
+            ];
+        }
+
         public function messageForm($id){
 
             $topicManager = new TopicManager();

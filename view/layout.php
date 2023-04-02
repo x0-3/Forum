@@ -16,9 +16,12 @@
 </head>
 
 <body>
+    <?php
+    use App\Session;
+    ?>
 
-    <h3><?= App\Session::getFlash("success") ?></h3>
-    <h3><?= App\Session::getFlash("error") ?></h3>
+    <h3><?= Session::getFlash("success") ?></h3>
+    <h3><?= Session::getFlash("error") ?></h3>
     
     <header>
         <a href="index.php">
@@ -29,9 +32,6 @@
 
         <?php
         // if there is no user in session then show login button
-
-        use App\Session;
-
         if($_SESSION == null){
             ?>
             
@@ -66,7 +66,7 @@
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
                     <li>
-                        <a href="#">
+                        <a href="index.php?ctrl=forum&action=profil">
                             <figure>
                                 <img src="<?= Session::getUser()->getAvatar() ?>" alt="account avatar">
 
