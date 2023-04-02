@@ -26,7 +26,7 @@
 
         }
 
-
+        // detail page for one category 
         public function detailCategory($id){
 
             $categoryManager = new CategoryManager();
@@ -41,7 +41,7 @@
             ];
         }
 
-
+        // detail page for one topic 
         public function detailTopic($id){
             $topicManager = new TopicManager();
             $messageManager = new MessageManager();
@@ -55,7 +55,7 @@
             ];
         }
 
-
+        
         public function like(){
 
             // if button submit pressed
@@ -100,7 +100,7 @@
 
         }
 
-
+        // detail page for one user 
         public function detailUser($id){
             $userManager = new UserManager();
             $topicManager = new TopicManager();
@@ -114,17 +114,21 @@
             ];
         }
 
+        // profil page with all the topic created by the user in session
         public function profil($id){
             $topicManager = new TopicManager();
+
+            $user_id = session::getUser()->getId();
 
             return [
                 "view" => VIEW_DIR."forum/profil.php",
                 "data" => [
-                    "topics" =>$topicManager->TopicUser($id),
+                    "topics" =>$topicManager->TopicUser($user_id),
                 ]
             ];
         }
 
+        // page for message form      
         public function messageForm($id){
 
             $topicManager = new TopicManager();
@@ -166,7 +170,7 @@
 
         }
 
-
+        // page for topic form      
         public function topicForm($id){
             $categoryManager = new CategoryManager();
 

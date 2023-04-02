@@ -6,16 +6,15 @@ $topics = $result["data"]["topics"];
 
 <div class="profilIntro">
     <figure>
-        <img src="<?=Session::getUser()->getAvatar()?>" alt="profil picture">
+        <img src="<?= Session::getUser()->getAvatar() ?>" alt="profil picture">
 
         <figcaption>
-            <h2><?=Session::getUser()->getPseudo()?></h2>
+            <h2><?= Session::getUser()->getPseudo() ?></h2>
 
         </figcaption>
     </figure>
 
 </div>
-
 
 <?php
 if (isset($topics)) {
@@ -29,11 +28,11 @@ if (isset($topics)) {
             <article>
                 <div class="authorInfo">
                     <figure>
-                        <img src="<?=Session::getUser()->getAvatar()?>" alt="avatar">
+                        <img src="<?=$topic->getUser()->getAvatar()?>" alt="avatar">
                         
                     </figure>
 
-                    <a href="index.php?ctrl=forum&action=detailUser&id=<?=$topic->getUser()->getId()?>">
+                    <a href="">
                         <p><?=$topic->getUser()->getPseudo()?></p>
                         
                     </a>
@@ -42,20 +41,21 @@ if (isset($topics)) {
                 <p><?=$topic->getTopicCreatedAt()?></p>
 
                 <a href="index.php?ctrl=forum&action=detailTopic&id=<?=$topic->getId()?>">
-                <p><?=$topic->getTitle()?></p>
+                    <p><?=$topic->getTitle()?></p>
                 </a>
 
 
-            </article>
+                </article>
 
         </section>
     <?php
     }
+
 } else {
     ?>
-
-    <h3>no topic for this user</h3>
     
-    <?php
+    <h3>You currently have no topic</h3>
+
+<?php
 }
 ?>
