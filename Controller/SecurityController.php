@@ -97,13 +97,13 @@
                 // filter the inputs
                 $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
-                $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                // $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                // $password = filter_input(INPUT_POST, "password", FILTER_VALIDATE_REGEXP,
-                //     array(
-                //         "options" => array("regexp" => '^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$'),
-                //     )
-                // );
+                $password = filter_input(INPUT_POST, "password", FILTER_VALIDATE_REGEXP,
+                    array(
+                        "options" => array("regexp" => '^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$^'),
+                    )
+                );
 
                 $confirmPassword = filter_input(INPUT_POST, "confirmPassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -130,8 +130,8 @@
                                 "password" => $hash,
                             ])) {
                                 
-                                // else it redirects the user to the homePage
-                                header("location:index.php");
+                                // else it redirects the user to the loginForm
+                                header("location:index.php?ctrl=security&action=loginForm");
                                 SESSION::addFlash("success", "vous ête bien inscrit");
                             }
                         }
@@ -183,7 +183,7 @@
                             
                             ABSTRACTCONTROLLER :: redirectTo("home", "home");                            
                             
-                            SESSION::addFlash("success", "bien connecté"); //show a message 
+                            SESSION::addFlash("success", "connected"); //show a message 
 
                             // if password not found then redirect to login form and display a message
                         }else {
@@ -219,8 +219,6 @@
         public function logout(){
 
             session_destroy();
-
-            // ABSTRACTCONTROLLER::redirectTo("security","loginForm");
             
             header("location:index.php?ctrl=security&action=loginForm");
 

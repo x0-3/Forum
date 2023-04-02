@@ -51,11 +51,31 @@
 * body header .account ul {
   list-style: none;
 }
-* body header .account ul li a.fa-solid {
+* body header .account ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 17px 0;
   text-decoration: none;
+}
+* body header .account ul li a .fa-solid {
   color: white;
   font-size: x-large;
-  margin: 17px 0;
+}
+* body header .account ul li a .fa-solid:hover {
+  color: #6a9f91;
+}
+* body header .account ul li a figure {
+  width: 60%;
+}
+* body header .account ul li a figure img {
+  width: 100%;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
 }
 * body main {
   padding-left: 93px;

@@ -29,6 +29,9 @@
 
         <?php
         // if there is no user in session then show login button
+
+        use App\Session;
+
         if($_SESSION == null){
             ?>
             
@@ -37,14 +40,12 @@
                     <li><a href="index.php" class="fa-solid fa-house"></a></li>
                     <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
                     <li><a href="index.php?ctrl=security&action=registerForm" class="fa-solid fa-user-plus"></a></li>
-
-                    <!-- <li><a href="index.php?ctrl=security&action=logout" class="fa-solid fa-arrow-right-from-bracket"></a></li> -->
                 </ul>
             </nav>
 
             <div class="account">
                 <ul>
-                    <li><a href="#" class="fa-solid fa-gear"></a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
                 </ul>
             </div>
             <?php
@@ -63,7 +64,15 @@
 
             <div class="account">
                 <ul>
-                    <li><a href="#" class="fa-solid fa-gear"></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                    <li>
+                        <a href="#">
+                            <figure>
+                                <img src="<?= Session::getUser()->getAvatar() ?>" alt="account avatar">
+
+                            </figure>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

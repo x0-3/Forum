@@ -63,11 +63,38 @@
 
                     li{
 
-                        a.fa-solid {
-                            text-decoration: none;
-                            color: white;
-                            font-size: x-large;
+                        a{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            width: 100%;
                             margin: 17px 0;
+                            text-decoration: none;
+
+                            .fa-solid {
+                                color: white;
+                                font-size: x-large;
+
+                                &:hover{
+                                    color: #6a9f91;
+
+                                }
+
+                            }
+    
+                            figure{
+                                width: 60%;
+
+                                img{
+                                    width: 100%;
+                                    border-radius: 100%;
+                                    -webkit-border-radius: 100%;
+                                    -moz-border-radius: 100%;
+                                    -ms-border-radius: 100%;
+                                    -o-border-radius: 100%;
+                                }
+                            }
+
                         }
                     }
                 }

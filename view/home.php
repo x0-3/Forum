@@ -1,7 +1,5 @@
 <?php
 $topics = $result["data"]['topics'];
-
-var_dump($_SESSION['user']);
 ?>
 
 <form action="index.php?ctrl=home&action=searchBar" method="post">
@@ -50,7 +48,7 @@ if (isset($topics)) {
 <?php
 } else {
     ?>
-    <h3>Sorry ther is no topic with this name.</h3>
+    <h3>Sorry there is no topic with this name.</h3>
 <?php
 }
 ?>
