@@ -115,7 +115,7 @@
         }
 
         // profil page with all the topic created by the user in session
-        public function profil($id){
+        public function profil(){
             $topicManager = new TopicManager();
 
             $user_id = session::getUser()->getId();
@@ -143,6 +143,7 @@
             ];
         }
 
+        // form action
         public function addMessage(){
 
             if(!empty($_POST)){
@@ -183,7 +184,8 @@
 
             ];
         }
-
+        
+        // form action
         public function addTopic(){
 
             if (!empty($_POST)) {
