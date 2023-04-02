@@ -27,20 +27,50 @@
             </figure>
         </a>
 
-        <nav>
-            <ul>
-                <li><a href="index.php" class="fa-solid fa-house"></a></li>
-                <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
-                <li><a href="index.php?ctrl=security&action=logout" class="fa-solid fa-arrow-right-from-bracket"></a></li>
-            </ul>
-        </nav>
+        <?php
+        // if there is no user in session then show login button
+        if($_SESSION == null){
+            ?>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.php" class="fa-solid fa-house"></a></li>
+                    <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
+                    <li><a href="index.php?ctrl=security&action=registerForm" class="fa-solid fa-user-plus"></a></li>
 
-        <div class="account">
-            <ul>
-                <li><a href="#" class="fa-solid fa-gear"></a></li>
-                <li><a href="index.php?ctrl=security&action=registerForm" class="fa-solid fa-user-plus"></a></li>
-            </ul>
-        </div>
+                    <!-- <li><a href="index.php?ctrl=security&action=logout" class="fa-solid fa-arrow-right-from-bracket"></a></li> -->
+                </ul>
+            </nav>
+
+            <div class="account">
+                <ul>
+                    <li><a href="#" class="fa-solid fa-gear"></a></li>
+                </ul>
+            </div>
+            <?php
+
+            // else show logout
+        } else {
+            ?>
+
+            <nav>
+                <ul>
+                    <li><a href="index.php" class="fa-solid fa-house"></a></li>
+                    <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
+                    <li><a href="index.php?ctrl=security&action=logout" class="fa-solid fa-arrow-right-from-bracket"></a></li>
+                </ul>
+            </nav>
+
+            <div class="account">
+                <ul>
+                    <li><a href="#" class="fa-solid fa-gear"></a></li>
+                </ul>
+            </div>
+
+            <?php
+        }
+        ?>
+
         
 
 
