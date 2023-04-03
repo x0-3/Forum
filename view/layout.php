@@ -38,7 +38,7 @@
                 <ul>
                     <li><a href="index.php" class="fa-solid fa-house"></a></li>
                     <li><a href="index.php?ctrl=forum&action=listCategories" class="fa-solid fa-puzzle-piece"></a></li>
-                    <li><a href="index.php?ctrl=security&action=registerForm" class="fa-solid fa-user-plus"></a></li>
+                    <li><a href="index.php?ctrl=security&action=loginForm" class="fa-solid fa-user-plus"></a></li>
                 </ul>
             </nav>
 

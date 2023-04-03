@@ -5,6 +5,13 @@
     font-family: 'Inter', sans-serif;
 
     body{
+
+        .message{
+            position: absolute;
+            top: 0;
+            right: 44%;
+        }
+
         header{
             background-color: #1E1637;
             width: 7%;
@@ -115,11 +122,6 @@
                 margin-bottom: 46px;
             }
 
-            // form{
-            //     display: flex;
-
-            // }
-
             .connection{
 
                 position: absolute;
@@ -206,15 +208,7 @@
                     color: #757575;
                 }
 
-                input#submitButton {
-                    display: none;
-                }
-                input[type= "search" i]{
-                    width: 84%;
-                    padding: 12px;
-                    border-radius: 10px;   
-                    border: 2px solid #363979;
-                }
+   
 
                 input[type="submit"] {
                     padding: 10px;
@@ -227,6 +221,37 @@
                         color: white;
                         background-color: #1E1637;
                     }
+                }
+            }
+
+            .searchBar{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                input#submitButton {
+                    border-radius: 0 10px 10px 0;
+                    height: 44px;
+                    margin-top: 0;
+                    font-size: large;
+                    border: none;
+                    color: white;
+                    background-color: #363979;
+
+                    &:hover{
+                        background-color: #1E1637;
+                    }
+                }
+
+                input[type= "search" i]{
+                    width: 84%;
+                    padding: 12px;
+                    border-radius: 10px 0 0 10px;
+                    -webkit-border-radius: 10px 0 0 10px;
+                    -moz-border-radius: 10px 0 0 10px;
+                    -ms-border-radius: 10px 0 0 10px;
+                    -o-border-radius: 10px 0 0 10px;
+                    border: 2px solid #363979;
                 }
             }
 
@@ -269,10 +294,11 @@
                         display: flex;
                         align-items: center;
         
-                        i.fa-solid.fa-lock-open, .fa-solid.fa-lock {
-                            margin-bottom: 21px;
+                        i.fa-solid.fa-lock-open, .fa-solid.fa-lock, .fa-solid.fa-trash {
+                            margin: 0 14px 21px 0px;
                             font-size: x-large;
                         }
+                        
                     }
 
                     a{
@@ -329,7 +355,7 @@
                       
                     }
                 }
-                .message{
+                .messages{
                     width: 84%;
                     margin-bottom: 40px;
     
@@ -394,7 +420,24 @@
                         width: 60%;
                         margin: 0 14px 12px 17px;
                     }
+
+                    figcaption {
+                        display: flex;
+                        align-items: center;
+                        width: 30%;
+                        justify-content: space-evenly;
+
+                        i.fa-solid.fa-gear {
+                            color: black;
+                            font-size: x-large;
+
+                            &:hover{
+                                color:#1E1637;
+                            }
+                        }
+                    }
                 }
+
             }
 
             .topic{

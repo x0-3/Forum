@@ -2,11 +2,10 @@
 $topics = $result["data"]['topics'];
 ?>
 
-<form action="index.php?ctrl=home&action=searchBar" method="post">
+<form action="index.php?ctrl=home&action=searchBar" method="post" class="searchBar">
     <input type="search" name="search" id="search" placeholder="Search a topic ..." autocomplete="on">
 
-    <input type="submit" id="submitButton" name="submit" value="search">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="submit" id="submitButton" name="submit" value="&#x1F50E;&#xFE0E;">
 </form>
 
 <?php

@@ -64,7 +64,7 @@ if (isset($topic)) {
             foreach ($messages as $message) {
                 ?>
 
-                <div class="message">
+                <div class="messages">
 
                     <div class="authorInfo">
 

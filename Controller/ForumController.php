@@ -51,12 +51,12 @@
                 "data" => [
                     "topic" => $topicManager->findOneById($id),
                     "messages" => $messageManager->TopicMessage($id),
-                    ]
+                ]
             ];
         }
         
         // delete one topic 
-        public function deleteTopic($id){
+        public function deleteTopic(){
 
             $topicManager = new TopicManager();
 
@@ -167,11 +167,12 @@
 
                     $userManager->editPseudo($pseudo, $user); // update the column pseudo to the user id in session
 
+                    session::addFlash("success", "the username will change once you've disconnected") ;
                     header("location:index.php?ctrl=forum&action=profil");
 
                 } else {
 
-                    echo "An error as occured ";
+                    session::addFlash("error", "couldn't edit your username please try again") ;
                 }
             } 
         }
@@ -227,9 +228,12 @@
                         "topic_id"=>$topic,
                     ]);
 
-                    echo "message ajouter";
+                    session::addFlash("success", "message added") ;
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
                 }
+            }else {
+                session::addFlash("error", "an error as occured") ;
+
             }
 
         }
@@ -270,7 +274,11 @@
                     ]);
                     
                 }
+                session::addFlash("success", "Topic added") ;
                 header("location:index.php?ctrl=forum&action=detailcategory&id=".$categories);
+            } else {
+                session::addFlash("erreor", "couldn't add the topic") ;
+
             }
         }
     }

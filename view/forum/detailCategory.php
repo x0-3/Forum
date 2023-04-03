@@ -6,10 +6,12 @@ $topic = $result["data"]["topics"];
 
 
 <section class="topic">
-    <form action="">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search a topic ...">
+    <form action="index.php?ctrl=home&action=searchBar" method="post" class="searchBar">
+        <input type="search" name="search" id="search" placeholder="Search a topic ..." autocomplete="on">
+
+        <input type="submit" id="submitButton" name="submit" value="&#x1F50E;&#xFE0E;">
     </form>
+
     <div class="categoryName">
         <h1><?=$categories ->getNameCategory()?></h1>
         <a href="index.php?ctrl=forum&action=topicForm&id=<?=$categories->getId()?>" class="fa-solid fa-plus"></a>
