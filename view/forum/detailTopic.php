@@ -1,6 +1,8 @@
 <?php
 $topic = $result["data"]["topic"];
 $messages = $result["data"]["messages"];
+$like = $result["data"]["like"];
+
 ?>
 
 <?php
@@ -27,10 +29,12 @@ if (isset($topic)) {
 
                 <a href="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>">
                     <i class="fa-solid fa-trash" style="color: #b20101;"></i>
-
                 </a>
 
-                <?= $topic->getLockTopic() ?>
+                <a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">
+                    <?= $topic->getLockTopic() ?>
+
+                </a>
             </div>
 
             <p><?= $topic->getTopicCreatedAt() ?></p>
@@ -43,7 +47,7 @@ if (isset($topic)) {
 
                 <button id="submit" type="submit">
                     <i class="fa-regular fa-thumbs-up"></i>
-                    <p><?= $topic->getLike() ? $topic->getLike() : "" ?></p>
+                    <p><?= $like ? $like : "" ?></p>
                 </button>
 
             </form>

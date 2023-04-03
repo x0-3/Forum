@@ -73,6 +73,35 @@
                 $this->className
             );
         }
+        
+        // finds if the user is an admin 
+        public function findIfAdmin($user){
+
+            $sql = "SELECT *
+            FROM user 
+            WHERE id_user = ?
+            AND ROLE = 'ADMIN'
+            ";
+
+            return $this->getMultipleResults(
+                DAO::select($sql, [$user], true), 
+                $this->className
+            );
+        }
+
+        // find if the topic was liked by the user
+        public function findOneByPseudo($user, $topic){
+            $sql = "SELECT *
+            FROM `".$this->tableName."` u
+            WHERE u.user_id = ?
+            AND u.topic_id = ?
+            ";
+            
+            return $this->getOneOrNullResult(
+                DAO::select($sql, [$user, $topic], false), 
+                $this->className
+            );
+        }
 
         // finds the topics Posted by one user 
         public function searchBar($topic){

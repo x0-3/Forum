@@ -45,12 +45,14 @@
         public function detailTopic($id){
             $topicManager = new TopicManager();
             $messageManager = new MessageManager();
+            $likeManager = new LikeManager();
 
             return [
                 "view" => VIEW_DIR."forum/detailTopic.php",
                 "data" => [
                     "topic" => $topicManager->findOneById($id),
                     "messages" => $messageManager->TopicMessage($id),
+                    "like" => $likeManager->countLike($id),
                 ]
             ];
         }
@@ -67,8 +69,11 @@
             // query to find the user topic 
             $topicAuthor = $topicManager->findAuthor($user, $topic);
 
-            // if the user has written the post then 
-            if($topicAuthor){
+            // find if the user is admin or not
+            $admin = $topicManager->findIfAdmin($user);
+
+            // if the user has written the post or that the user is an admin then
+            if($topicAuthor || $admin){
 
                 $topicManager->deleteTopic($topic); // delete the post
                 header("location:index.php?ctrl=forum&action=profil"); // redirect on it's profil page
@@ -77,6 +82,15 @@
 
                 header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic); // else stay in the current post page
             }
+
+        }
+
+        // TODO:
+        public function lockTopic(){
+
+            // if the user is an admin then
+
+            
 
         }
         
@@ -114,8 +128,7 @@
                     header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
                 }
 
-                // count the number of like on a topic
-                $likeManager->countLike($topic);
+
             }
 
 

@@ -40,16 +40,12 @@ class LikeManager extends Manager{
 
     // count the table like and add it to the table topic in the column like on the corresponding id of the topic 
     public function countLike($topic){
-        $sql = "UPDATE topic t 
-                SET `like` = (SELECT COUNT(*) FROM `like` l WHERE l.topic_id = ? )WHERE t.id_topic = ?
+        $sql = "SELECT COUNT(*) FROM `like` l WHERE l.topic_id = ?
                 ";
 
-        return $this->getOneOrNullResult(
-            DAO::select($sql, [$topic, $topic]), 
-            $this->className
+        return $this->getSingleScalarResult(
+            DAO::select($sql, [$topic], false), 
         );
-
-
     }
 
 }

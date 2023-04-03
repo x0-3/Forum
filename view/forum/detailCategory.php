@@ -1,7 +1,6 @@
 <?php
 $categories = $result["data"]["categories"];
 $topic = $result["data"]["topics"];
-
 ?>
 
 
