@@ -88,7 +88,41 @@
         // TODO:
         public function lockTopic(){
 
+            $topicManager = new TopicManager;
+
+            $user = session::getUser()->getId();
+
+            $admin = $topicManager->findIfAdmin($user); //see if user is admin 
+
+            $topic = $_GET['id'];
+
             // if the user is an admin then
+            if ($admin) {
+
+                // see the status of the topic
+                $status = $topicManager->lockStatus($topic);
+
+                // if the topic is not locked then 
+                if ($status) {
+
+                    $topicManager->addLock($topic);
+                    session::addFlash("success", "The topic has been locked");
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+                    
+                } else {
+
+                    $topicManager->removeLock($topic);
+                    session::addFlash("success", "The topic has been unlocked");
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
+                }
+
+            } else {
+
+                session::addFlash("error", "Only admins can lock a topic");
+                header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+            }
+
 
             
 

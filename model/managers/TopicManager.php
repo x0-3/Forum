@@ -89,6 +89,47 @@
             );
         }
 
+        // see the topic status
+        public function lockStatus($idTopic){
+            $sql = "SELECT *
+            FROM topic 
+            WHERE lockTopic = 0
+            and id_topic = ?
+            ";
+    
+            return $this->getOneOrNullResult(
+                DAO::select($sql, [$idTopic], false), 
+                $this->className
+            );
+        }
+
+        // lock the topic
+        public function addLock($idTopic){
+            $sql = "update topic 
+            SET lockTopic = 1
+            WHERE id_topic = ?
+            ";
+    
+            return $this->getOneOrNullResult(
+                DAO::select($sql, [$idTopic], false), 
+                $this->className
+            );
+        }
+
+        // remove the lock topic
+        public function removeLock($idTopic){
+            $sql = "update topic 
+            SET lockTopic = 0
+            WHERE id_topic = ?
+            ";
+    
+            return $this->getOneOrNullResult(
+                DAO::select($sql, [$idTopic], false), 
+                $this->className
+            );
+        }
+        
+
         // find if the topic was liked by the user
         public function findOneByPseudo($user, $topic){
             $sql = "SELECT *
