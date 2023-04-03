@@ -44,4 +44,13 @@
             return false;
         }
 
+        public static function Token(){
+            $_SESSION['token'] = bin2hex(random_bytes(32));
+
+            $_SESSION['token-exp'] = time() + 3600; //1hr 
+
+            return (isset($_SESSION['token'])) ? $_SESSION['token'] : false;
+
+        }
+
     }
