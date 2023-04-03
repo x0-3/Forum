@@ -60,6 +60,21 @@
         }
         
         // finds the topics Posted by one user 
+        public function findAuthor($user_id, $id_topic){
+
+            $sql = "SELECT *
+                    FROM topic 
+                    WHERE user_id = ?
+                    AND id_topic = ?
+            ";
+
+            return $this->getMultipleResults(
+                DAO::select($sql, [$user_id, $id_topic], true), 
+                $this->className
+            );
+        }
+
+        // finds the topics Posted by one user 
         public function searchBar($topic){
 
             $sql = "SELECT *

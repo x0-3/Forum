@@ -57,17 +57,27 @@
         
         // delete one topic 
         public function deleteTopic($id){
+
             $topicManager = new TopicManager();
-            $messageManager = new MessageManager();
 
-            return [
-                "view" => VIEW_DIR."forum/detailTopic.php",
-                "data" => [
-                    "topic" => $topicManager->deleteTopic($id),
-                    "messages" => $messageManager->TopicMessage($id),
+            // get the user in session
+            $user = session::getUser()->getId();
+            $topic = $_GET['id']; // get the id of the topic 
 
-                    ]
-            ];
+            // query to find the user topic 
+            $topicAuthor = $topicManager->findAuthor($user, $topic);
+
+            // if the user has written the post then 
+            if($topicAuthor){
+
+                $topicManager->deleteTopic($topic); // delete the post
+                header("location:index.php?ctrl=forum&action=profil"); // redirect on it's profil page
+
+            } else {
+
+                header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic); // else stay in the current post page
+            }
+
         }
         
         public function like(){
