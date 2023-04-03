@@ -150,9 +150,18 @@ final class User extends Entity {
      */ 
     public function setRole($role)
     {
-        $this->role = $role;
+
+        $this->role = json_encode($role);
 
         return $this;
+    }
+
+    public function hasRole($role)
+    {
+
+        $result = $this->role == $role;
+
+        return $result;
     }
 
     /**

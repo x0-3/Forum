@@ -17,14 +17,14 @@ class UserManager extends Manager{
 
     
     // find a pseudo 
-    public function findOneByPseudo($data){
-        $sql = "SELECT u.id_user, u.pseudo, u.avatar
+    public function findOneByPseudo($pseudo){
+        $sql = "SELECT u.id_user, u.pseudo, u.avatar, u.password
         FROM `".$this->tableName."` u
-        WHERE u.pseudo = :pseudo
+        WHERE u.pseudo = ?
         ";
 
         return $this->getOneOrNullResult(
-            DAO::select($sql, ['pseudo' => $data], false), 
+            DAO::select($sql, [$pseudo], false), 
             $this->className
         );
     }

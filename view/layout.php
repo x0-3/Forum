@@ -7,9 +7,8 @@
     <script src="https://kit.fontawesome.com/adba52364d.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="public/js/app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public\css\style.css">
     <title>Document</title>
@@ -20,8 +19,8 @@
     use App\Session;
     ?>
 
-    <h3><?= Session::getFlash("success") ?></h3>
-    <h3><?= Session::getFlash("error") ?></h3>
+    <h3 class="message"><?= Session::getFlash("success") ?></h3>
+    <h3 class="message"><?= Session::getFlash("error") ?></h3>
     
     <header>
         <a href="index.php">

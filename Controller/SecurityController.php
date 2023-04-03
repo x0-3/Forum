@@ -97,7 +97,6 @@
                 // filter the inputs
                 $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
-                // $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
                 $password = filter_input(INPUT_POST, "password", FILTER_VALIDATE_REGEXP,
                     array(
@@ -128,11 +127,12 @@
                                 "avatar" => $avatar,
                                 "email" => $email,
                                 "password" => $hash,
+                                "role"=> json_encode("USER"),
                             ])) {
                                 
                                 // else it redirects the user to the loginForm
-                                header("location:index.php?ctrl=security&action=loginForm");
                                 SESSION::addFlash("success", "vous ête bien inscrit");
+                                header("location:index.php?ctrl=security&action=loginForm");
                             }
                         }
                     }
@@ -172,22 +172,23 @@
 
                     // if user is found in db
                     if($user){
-                        
-                        // hash password
-                        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+                        // hash password that is in db
+                        $hash = $user->getPassword();
                         
                         // use password_verify to see if the password input is the same as password in db
                         if(password_verify($password, $hash)){
 
                             SESSION::setUser($user); //add the user to session
                             
-                            ABSTRACTCONTROLLER :: redirectTo("home", "home");                            
-                            
                             SESSION::addFlash("success", "connected"); //show a message 
+                            $this->redirectTo("home", "home");                            
+                            
 
                             // if password not found then redirect to login form and display a message
                         }else {
 
+                            SESSION::addFlash("success", "username or password incorrect"); //show a message 
                             
                             return [
                                 "view" => VIEW_DIR . "security/login.php",
@@ -195,19 +196,18 @@
                                 
                             ];
                             
-                            SESSION::addFlash("error", "username or password incorrect");
                         }
 
                         // if username is not stored in db then display a message and redirect to loginform 
                     } else {
 
-                        
+                        SESSION::addFlash("success", "username or password incorrect"); //show a message 
+
                         return [
                             "view" => VIEW_DIR . "security/login.php",
                             "data" => null,
                             
                         ];
-                        SESSION::addFlash("error", "username or password incorrect");
                     }
 
                 }
@@ -220,8 +220,8 @@
 
             session_destroy();
             
+            SESSION::addFlash("success", "deconnected");
             header("location:index.php?ctrl=security&action=loginForm");
 
-            SESSION::addFlash("success", "deconnected");
         }
     }
