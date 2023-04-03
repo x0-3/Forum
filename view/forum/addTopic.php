@@ -1,5 +1,7 @@
 <?php
-$categories = $result["data"]["category"]
+$categories = $result["data"]["category"];
+
+use App\Session;
 ?>
 
 <section class="addTopic">
@@ -8,6 +10,8 @@ $categories = $result["data"]["category"]
     <form action="index.php?ctrl=forum&action=addTopic&id=<?=$categories->getId()?>" method="post">
 
         <textarea name="title" id="text" cols="100" rows="10" placeholder="What do you want to write about ..."></textarea>
+
+        <input type="hidden" name="token" value="<?=session::Token()?>">
 
         <input type="submit" value="add Topic">
     </form>

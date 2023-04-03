@@ -202,25 +202,44 @@
             // if the form is not empty 
             if (!empty($_POST)) {
 
-                // filter the input
-                $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                // if the token in the input is null or the token in session is null 
+                if (null==($_POST['token']) || null==($_SESSION['token'])) {
+                    exit("Token not set");
+                }
 
-                // check if the input has been correctly filtered
-                if ($pseudo) {
+                // if the token in input is the same as the token in session 
+                if ($_POST['token'] == $_SESSION['token']) {
                     
-                    $user = session::getUser()->getId();
-                    
-                    $userManager = new UserManager;
+                    if (time() >= $_SESSION['token-exp']) {
+                        exit("Your token has expired. Reload the form");
+                    }
 
-                    $userManager->editPseudo($pseudo, $user); // update the column pseudo to the user id in session
-
-                    session::addFlash("success", "the username will change once you've disconnected") ;
-                    header("location:index.php?ctrl=forum&action=profil");
+                    // filter the input
+                    $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    
+                    // check if the input has been correctly filtered
+                    if ($pseudo) {
+                        
+                        $user = session::getUser()->getId();
+                        
+                        $userManager = new UserManager;
+    
+                        $userManager->editPseudo($pseudo, $user); // update the column pseudo to the user id in session
+    
+                        session::addFlash("success", "the username will change once you've disconnected") ;
+                        header("location:index.php?ctrl=forum&action=profil");
+                        
+                        unset($_SESSION["token"]); //unset the token
+                        unset($_SESSION["token-exp"]);
+                    } else {
+    
+                        session::addFlash("error", "couldn't edit your username please try again") ;
+                    }
 
                 } else {
-
-                    session::addFlash("error", "couldn't edit your username please try again") ;
+                    exit("error invalid token");
                 }
+
             } 
         }
 
@@ -319,28 +338,43 @@
 
             if (!empty($_POST)) {
 
-                $user= SESSION::getUser()->getId();
-
-                $categories = $_GET['id'];   
-                
-                $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-                if ($title) {
-
-                    $topicManager = new TopicManager();
-
-                    $topicManager->add([
-                        "title" =>$title,
-                        "category_id" =>$categories,
-                        "user_id" =>$user,
-                    ]);
-                    
+                // if the token in the input is null or the token in session is null 
+                if (null==($_POST['token']) || null==($_SESSION['token'])) {
+                    exit("Token not set");
                 }
-                session::addFlash("success", "Topic added") ;
-                header("location:index.php?ctrl=forum&action=detailcategory&id=".$categories);
-            } else {
-                session::addFlash("erreor", "couldn't add the topic") ;
 
-            }
+                // if the token in input is the same as the token in session 
+                if ($_POST['token'] == $_SESSION['token']) {
+
+                    if (time() >= $_SESSION['token-exp']) {
+                        exit("Your token has expired. Reload the form");
+                    }
+
+                    $user= SESSION::getUser()->getId();
+
+                    $categories = $_GET['id'];   
+                    
+                    $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                    if ($title) {
+
+                        $topicManager = new TopicManager();
+
+                        $topicManager->add([
+                            "title" =>$title,
+                            "category_id" =>$categories,
+                            "user_id" =>$user,
+                        ]);
+                        
+                    }
+                    session::addFlash("success", "Topic added") ;
+                    header("location:index.php?ctrl=forum&action=detailcategory&id=".$categories);
+                    
+                    unset($_SESSION["token"]); //unset the token
+                    unset($_SESSION["token-exp"]);
+                } else {
+                    exit("error invalid token");
+                }
+            } 
         }
     }

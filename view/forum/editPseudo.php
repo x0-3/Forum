@@ -9,6 +9,8 @@ $user = session::getUser()->getId();
 
         <input type="text" name="pseudo" id="pseudo">
 
+        <input type="hidden" name="token" value="<?=session::Token()?>">
+        
         <input type="submit" value="Change username">
     </form>
 </section>
