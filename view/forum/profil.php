@@ -10,7 +10,7 @@ $topics = $result["data"]["topics"];
 
         <figcaption>
             <h2><?= Session::getUser()->getPseudo() ?></h2>
-
+            <a href="index.php?ctrl=forum&action=pseudoForm&id=<?=Session::getUser()->getId()?>"><i class="fa-solid fa-gear"></i></a>
         </figcaption>
     </figure>
 

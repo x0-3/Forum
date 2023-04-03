@@ -95,9 +95,6 @@
                 // look if there is a dublicate of the user and the topic
                 $userLike=$likeManager->findOneByPseudo($user, $topic);
 
-                // $TopicLike=$likeManager->findOneByTopic($topic);
-
-
                 // if the user hasn't liked the topic then 
                 if (!$userLike) {
 
@@ -137,6 +134,48 @@
                 ]
             ];
         }
+
+        // edit the user name
+        public function pseudoForm($id){
+            $userManager = new UserManager();
+
+            return[
+                "view" => VIEW_DIR."forum/editPseudo.php",
+                "data" => [
+                    "user" => $userManager->findOneById($id),
+
+                ]
+
+            ];
+        }
+
+        // edit the user name
+        public function pseudoEdit(){
+
+            // if the form is not empty 
+            if (!empty($_POST)) {
+
+                // filter the input
+                $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                // check if the input has been correctly filtered
+                if ($pseudo) {
+                    
+                    $user = session::getUser()->getId();
+                    
+                    $userManager = new UserManager;
+
+                    $userManager->editPseudo($pseudo, $user); // update the column pseudo to the user id in session
+
+                    header("location:index.php?ctrl=forum&action=profil");
+
+                } else {
+
+                    echo "An error as occured ";
+                }
+            } 
+        }
+
 
         // profil page with all the topic created by the user in session
         public function profil(){

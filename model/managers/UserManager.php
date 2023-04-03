@@ -28,6 +28,18 @@ class UserManager extends Manager{
             $this->className
         );
     }
+    
+    // find a pseudo 
+    public function editPseudo($data, $idUser){
+        $sql = "update user 
+        SET pseudo = ?
+        WHERE id_user = ?
+        ";
 
+        return $this->getOneOrNullResult(
+            DAO::select($sql, [$data, $idUser], false), 
+            $this->className
+        );
+    }
 
 }
