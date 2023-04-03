@@ -209,7 +209,7 @@
 
                 // if the token in input is the same as the token in session 
                 if ($_POST['token'] == $_SESSION['token']) {
-                    
+
                     if (time() >= $_SESSION['token-exp']) {
                         exit("Your token has expired. Reload the form");
                     }
@@ -290,26 +290,40 @@
                         exit("Your token has expired. Reload the form");
                     }
 
-                    $user = session::getUser()->getId();
+                    $topicManager = new TopicManager();
 
+                    $user = session::getUser()->getId();
                     $topic = $_GET['id']; 
-    
-                    $text = filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    
-                    if($text){
-    
-                        $messageManager = new MessageManager();
-    
-                        $messageManager->add([
-                            "text"=> $text,
-                            "user_id" => $user,
-                            "topic_id"=>$topic,
-                        ]);
-    
-                        session::addFlash("success", "message added") ;
-                        header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+
+                    $topicStatus = $topicManager->lockStatus($topic);
+
+                    // if the topic is not lock then 
+                    if ($topicStatus) {
+                        
+                        $text = filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        
+                        if($text){
+        
+                            $messageManager = new MessageManager();
+        
+                            $messageManager->add([
+                                "text"=> $text,
+                                "user_id" => $user,
+                                "topic_id"=>$topic,
+                            ]);
+        
+                            session::addFlash("success", "message added") ;
+                            header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+                        }
+                        
+                        // if it's locked
+                    } else {
+                        session::addFlash("error", "topic locked") ;
+                        
                     }
 
+                    header("location:index.php?ctrl=forum&action=detailTopic&id=".$topic);
+                    
                     unset($_SESSION["token"]); //unset the token
                     unset($_SESSION["token-exp"]);
                 } else {
