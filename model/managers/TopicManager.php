@@ -31,7 +31,6 @@
 
         }
 
-
         // finds the topics Posted by one user 
         public function TopicUser($id){
 
@@ -46,7 +45,20 @@
                 $this->className
             );
         }
+        
+        // finds the topics Posted by one user 
+        public function deleteTopic($id){
 
+            $sql = "DELETE FROM `topic` 
+                    WHERE id_topic = ?
+                    ";
+
+            return $this->getMultipleResults(
+                DAO::select($sql, [$id], true), 
+                $this->className
+            );
+        }
+        
         // finds the topics Posted by one user 
         public function searchBar($topic){
 

@@ -54,7 +54,21 @@
                     ]
             ];
         }
+        
+        // delete one topic 
+        public function deleteTopic($id){
+            $topicManager = new TopicManager();
+            $messageManager = new MessageManager();
 
+            return [
+                "view" => VIEW_DIR."forum/detailTopic.php",
+                "data" => [
+                    "topic" => $topicManager->deleteTopic($id),
+                    "messages" => $messageManager->TopicMessage($id),
+
+                    ]
+            ];
+        }
         
         public function like(){
 
