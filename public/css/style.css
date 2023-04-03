@@ -234,7 +234,20 @@
   display: flex;
   align-items: center;
 }
-* body main .posts article .topicHeader i.fa-solid.fa-lock-open, * body main .posts article .topicHeader .fa-solid.fa-lock, * body main .posts article .topicHeader .fa-solid.fa-trash {
+* body main .posts article .topicHeader .lock {
+  padding-top: 0;
+}
+* body main .posts article .topicHeader .lock button {
+  border: none;
+  background: none;
+  margin-bottom: 5px;
+}
+* body main .posts article .topicHeader .lock button i.fa-solid.fa-lock-open, * body main .posts article .topicHeader .lock button .fa-solid.fa-lock {
+  font-size: x-large;
+  position: initial;
+  color: black;
+}
+* body main .posts article .topicHeader i.fa-solid.fa-trash {
   margin: 0 14px 21px 0px;
   font-size: x-large;
 }

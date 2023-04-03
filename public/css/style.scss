@@ -293,11 +293,30 @@
                     .topicHeader{
                         display: flex;
                         align-items: center;
-        
-                        i.fa-solid.fa-lock-open, .fa-solid.fa-lock, .fa-solid.fa-trash {
+
+                        .lock{
+                            padding-top: 0;
+
+                            button{
+                                border: none;
+                                background: none;
+                                margin-bottom: 5px;
+
+                                i.fa-solid.fa-lock-open, .fa-solid.fa-lock {
+                                    font-size: x-large;
+                                    position: initial;
+                                    color: black;
+                                }
+                            }
+                    
+
+                        }
+
+                        i.fa-solid.fa-trash{
                             margin: 0 14px 21px 0px;
                             font-size: x-large;
                         }
+        
                         
                     }
 

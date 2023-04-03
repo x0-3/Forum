@@ -31,7 +31,7 @@ if (isset($topic)) {
                     <i class="fa-solid fa-trash" style="color: #b20101;"></i>
                 </a>
 
-                <form action="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>" method="post">
+                <form action="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>" method="post" class="lock">
                     
                     <button type="submit"><?= $topic->getLockTopic() ?></button>        
                 </form>
