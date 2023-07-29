@@ -1,6 +1,6 @@
 # Forum
 
-Welcome to the Music Forum! This website is built using Symfony and provides a platform for music enthusiasts to discuss various topics related to music. Whether you want to share your thoughts, ask questions, or discover new music, this forum is the perfect place for music lovers like you.
+Welcome to the Music Forum! This website is built using PHP and provides a platform for music enthusiasts to discuss various topics related to music. Whether you want to share your thoughts, ask questions, or discover new music, this forum is the perfect place for music lovers like you.
 
 ## Features
 
@@ -58,27 +58,7 @@ To run this project locally, please follow the steps below:
    cd Forum
    ```
 
-3. Install the required dependencies using Composer:
-   ```
-   composer install
-   ```
-
-4. Import the provided database into your MySQL server:
+3. Import the provided database into your MySQL server:
    - Locate the database file named `db.sql` inside the `db` folder.
-   - Import this file into your MySQL server to create the necessary tables and populate them with sample data. You can use a tool like heidiSql or run the following command:
-     ```
-     mysql -u your-username -p your-database-name < db.sql
-     ```
+   - Import this file into your MySQL server to create the necessary tables
 
-5. Configure the database connection:
-   - Open the `.env` file and update the `DATABASE_URL` parameter with your MySQL database credentials.
-
-7. Start the Symfony development server:
-   ```
-   symfony server:start
-   ```
-
-8. Access the application in your web browser:
-   ```
-   http://localhost:8000
-   ```
